@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loyalty Program | Admin Dashboard</title>
+    <!-- Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Oswald:wght@500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/lib/font-awesome/css/all.min.css">
+    <link rel="stylesheet" href="/static/css/admin-style.css">
+</head>
+
+<body>
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-logo">
+            <img src="/static/img/Maplewood-Burgers-Logo-Horiz.svg" alt="Maplewood Burgers">
+        </div>
+        <ul class="sidebar-nav">
+            <li>
+                <a href="/access-panel">
+                    <i class="fas fa-file-invoice"></i>
+                    <span>Applications</span>
+                </a>
+            </li>
+            <li>
+                <a href="/access-panel/loyalty" class="active">
+                    <i class="fas fa-users"></i>
+                    <span>Loyalty Program</span>
+                </a>
+            </li>
+            <li>
+                <a href="/access-panel/blogs">
+                    <i class="fas fa-blog"></i>
+                    <span>Blogs</span>
+                </a>
+            </li>
+            <li>
+                <a href="/access-panel/settings">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </a>
+            </li>
+            <li>
+                <a href="/access-panel/sync-menu" class="sync-menu-link">
+                    <i class="fas fa-sync-alt"></i>
+                    <span>Sync Menu Items</span>
+                </a>
+            </li>
+            <li style="margin-top: 20px;">
+                <a href="/" target="_blank">
+                    <i class="fas fa-external-link-alt"></i>
+                    <span>View Website</span>
+                </a>
+            </li>
+        </ul>
+        <div class="sidebar-footer">
+            <a href="/logout" class="logout-btn">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>Logout</span>
+            </a>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Top Bar -->
+        <div class="top-bar">
+            <div class="welcome-text">
+                <h2>Loyalty Program Signups</h2>
+                <p>Track all users who registered for the gift program.</p>
+            </div>
+            <div class="top-actions">
+                <a href="/reviews" target="_blank" class="btn-outline">View Reviews Page</a>
+            </div>
+        </div>
+
+        <!-- Loyalty Table -->
+        <div class="card">
+            <!-- <div class="card-title">Loyalty Program Members</div> -->
+            <div class="table-wrapper  modern-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Phone Number</th>
+                            <th>Email Address</th>
+                            <th>Birthdate</th>
+                            <th>Joined On</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for item in signups %}
+                        <tr>
+                            <td>
+                                <strong style="display: block; color: var(--dark);">{{ item.fullname }}</strong>
+                            </td>
+                            <td>{{ item.phonenumber }}</td>
+                            <td>
+                                <a href="mailto:{{ item.email }}" style="color: var(--primary); text-decoration: none;">
+                                    {{ item.email }}
+                                </a>
+                            </td>
+                            <td>
+                                {% if item.birthdate %}
+                                {{ item.birthdate.strftime('%b %d, %Y') }}
+                                {% else %}
+                                <span style="color: #ccc;">Not provided</span>
+                                {% endif %}
+                            </td>
+                            <td style="font-size: 13px; color: var(--text-muted);">
+                                {{ item.created_at.strftime('%b %d, %Y') }}
+                            </td>
+                            <td>
+                                <form action="{{ url_for('admin_delete_loyalty', id=item.id) }}" method="POST" style="display:inline;">
+                                    <button type="submit" class="btn-sm btn-delete" style="font-size:12px; padding: 8px 12px;">
+                                        <i class="fas fa-trash"></i> Delete
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                        {% if not signups %}
+                        <tr>
+                            <td colspan="6" style="text-align: center; padding: 60px 0; color: #999;">
+                                No loyalty signups found yet.
+                            </td>
+                        </tr>
+                        {% endif %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+
+    <!-- Custom Confirmation Modal Styles -->
+    <style>
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(17, 18, 22, 0.65);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        .modal-container {
+            background: #ffffff;
+            border-radius: 24px;
+            width: 90%;
+            max-width: 480px;
+            padding: 32px;
+            box-shadow: 0 20px 50px rgba(17, 18, 22, 0.25);
+            border: 1px solid #e4e7ec;
+            text-align: center;
+            transform: scale(0.9);
+            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        .modal-overlay.active .modal-container {
+            transform: scale(1);
+        }
+        .modal-icon {
+            width: 64px;
+            height: 64px;
+            background: rgba(181, 18, 43, 0.1);
+            color: #b5122b;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 26px;
+            margin-bottom: 24px;
+        }
+        .modal-title {
+            font-family: 'Oswald', sans-serif;
+            text-transform: uppercase;
+            font-size: 24px;
+            color: #111216;
+            margin-bottom: 12px;
+            letter-spacing: 0.5px;
+        }
+        .modal-message {
+            color: #667085;
+            font-size: 15px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+        .modal-actions {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+        }
+        .modal-btn {
+            padding: 12px 28px;
+            border-radius: 14px;
+            font-size: 14px;
+            font-weight: 700;
+            cursor: pointer;
+            border: none;
+            transition: all 0.2s ease;
+        }
+        .modal-btn-cancel {
+            background: #f3f4f6;
+            color: #475467;
+            border: 1px solid #e4e7ec;
+        }
+        .modal-btn-cancel:hover {
+            background: #e4e7ec;
+            color: #111216;
+        }
+        .modal-btn-confirm {
+            background: linear-gradient(135deg, #b5122b, #8f0e22);
+            color: #ffffff;
+        }
+        .modal-btn-confirm:hover {
+            background: linear-gradient(135deg, #8f0e22, #6b0a19);
+            transform: translateY(-1px);
+        }
+    </style>
+
+    <!-- Custom Confirmation Modal -->
+    <div class="modal-overlay" id="confirm-modal-overlay">
+        <div class="modal-container">
+            <div class="modal-icon">
+                <i class="fas fa-sync-alt"></i>
+            </div>
+            <h3 class="modal-title">Sync Menu Items</h3>
+            <p class="modal-message">Note: This will refresh all menu items and categories from the scrap data. Proceed?</p>
+            <div class="modal-actions">
+                <button class="modal-btn modal-btn-cancel" id="confirm-modal-cancel">Cancel</button>
+                <button class="modal-btn modal-btn-confirm" id="confirm-modal-proceed">Proceed</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const syncLinks = document.querySelectorAll('.sync-menu-link');
+        const overlay = document.getElementById('confirm-modal-overlay');
+        const cancelBtn = document.getElementById('confirm-modal-cancel');
+        const proceedBtn = document.getElementById('confirm-modal-proceed');
+        let targetUrl = '';
+
+        syncLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                targetUrl = link.getAttribute('href');
+                overlay.classList.add('active');
+            });
+        });
+
+        cancelBtn.addEventListener('click', () => {
+            overlay.classList.remove('active');
+        });
+
+        proceedBtn.addEventListener('click', () => {
+            if (targetUrl) {
+                window.location.href = targetUrl;
+            }
+        });
+
+        // Close when clicking outside modal
+        overlay.addEventListener('click', (e) => {
+            if (e.target === overlay) {
+                overlay.classList.remove('active');
+            }
+        });
+    });
+    </script>
+</body>
+
+</html>

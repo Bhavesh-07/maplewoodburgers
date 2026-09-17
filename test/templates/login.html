@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login - Maplewood Burgers</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/app.css">
+    <style>
+        body {
+            background: #111;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .login-box {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.5);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        .login-box img {
+            width: 200px;
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            font-family: 'Oswald', sans-serif;
+            text-transform: uppercase;
+            margin-bottom: 25px;
+            color: #222;
+        }
+
+        .form-group {
+            text-align: left;
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 700;
+            font-size: 14px;
+            margin-bottom: 8px;
+            color: #555;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #eee;
+            border-radius: 10px;
+            font-family: inherit;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus {
+            border-color: #aa1e2d;
+        }
+
+        .login-btn {
+            width: 100%;
+            background: #aa1e2d;
+            color: white;
+            padding: 14px;
+            border: none;
+            border-radius: 30px;
+            font-family: 'Oswald', sans-serif;
+            font-size: 16px;
+            font-weight: bold;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .login-btn:hover {
+            background: #8e1925;
+        }
+
+        .error-msg {
+            background: #ffebee;
+            color: #c62828;
+            padding: 10px;
+            border-radius: 8px;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="login-box">
+        <img src="/static/img/Maplewood-Burgers-Logo-Stacked.svg" alt="Maplewood Burgers">
+        <h2>Admin Portal</h2>
+
+        {% if error %}
+        <div class="error-msg">{{ error }}</div>
+        {% endif %}
+
+        <form action="/login" method="POST">
+            <div class="form-group">
+                <label>Username</label>
+                <input type="text" name="username" required autofocus>
+            </div>
+            <div class="form-group">
+                <label>Password</label>
+                <input type="password" name="password" required>
+            </div>
+            <button type="submit" class="login-btn">Sign In</button>
+        </form>
+        <p style="margin-top: 20px; font-size: 13px;"><a href="/" style="color: #777; text-decoration: none;">&larr;
+                Back to Website</a></p>
+    </div>
+
+    <!-- LeadConnector Chat Widget -->
+    {% if settings.chat_widget_key %}
+    <script>
+    window.addEventListener("load", function () {
+        var lc_location_id = "{{ settings.chat_widget_key }}";
+        var settings = {
+            "location-id": lc_location_id,
+            "style": "--chat-widget-primary-color:#EF8B22; --chat-widget-active-color:#EF8B22; --chat-widget-bubble-color:#EF8B22",
+            "prompt-msg": "Hi there, have a question? Text us here.",
+            "heading": "Hi There! Have a question?",
+            "sub-heading": "Please enter your question or message below and we will get right back to you.",
+            "success-msg": "We'll be with you shortly!!",
+            "thank-you-msg": "Thank You!",
+            "legal-msg": "By submitting you agree to receive SMS or e-mails for the provided channel. Rates may be applied.",
+            "show-prompt": "true",
+            "auto-country-code": "true",
+            "enable-revisit-message": "true",
+            "revisit-prompt-msg": "Welcome back, how can we help you today?",
+            "use-email-field": "false"
+        };
+
+        var textWidget = document.createElement("chat-widget");
+        Object.keys(settings).forEach(function(key) {
+            textWidget.setAttribute(key, settings[key]);
+        });
+        document.body.appendChild(textWidget);
+
+        var moduleScript = document.createElement("script");
+        moduleScript.src = "https://widgets.leadconnectorhq.com/loader.js";
+        moduleScript.setAttribute("data-cdn-url", "https://widgets.leadconnectorhq.com");
+        document.body.appendChild(moduleScript);
+    });
+    </script>
+    {% endif %}
+</body>
+
+</html>

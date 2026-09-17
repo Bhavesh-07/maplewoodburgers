@@ -1,0 +1,362 @@
+/* ================= OUR BURGERS PAGE STYLES ================= */
+
+/* Hero Section */
+.hero-burgers {
+    background-image: url(../img/hero-bg.jpg);
+    background-position: center bottom;
+    background-size: cover;
+    padding: 120px 0 180px;
+    position: relative;
+    color: #fff;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    min-height: 80vh;
+}
+
+.hero-burgers::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.2) 100%);
+    z-index: 1;
+}
+
+.hero-burgers .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    padding: 0 5%;
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: center;
+}
+
+.hero-burgers-image {
+    width: 100%;
+    max-width: 500px;
+    margin-bottom: 2rem;
+}
+
+.hero-burgers-image img {
+    width: 100%;
+    height: auto;
+    filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.3));
+}
+
+.hero-burgers-content {
+    max-width: 560px;
+}
+
+.hero-burgers-content p {
+    line-height: 1.5;
+    margin-bottom: 2.5rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+    color: #fff;
+    font-family: "Open Sans", Sans-serif;
+    font-size: 1em;
+    text-align: center;
+    font-weight: 700;
+}
+
+.hero-burgers .order-btn {
+    padding: 18px 45px;
+    background-color: #EF8B22;
+    /* Matches the screenshot amber/orange */
+    color: #fff;
+    text-decoration: none;
+    border-radius: 40px;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    display: inline-block;
+    box-shadow: 0 4px 15px rgba(239, 139, 34, 0.3);
+}
+
+.hero-burgers .order-btn:hover {
+    background-color: #d67d1e;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(239, 139, 34, 0.4);
+}
+
+/* #biggerthanburgers box */
+.bigger-than-burgers {
+    background-color: #fff;
+    position: absolute;
+    bottom: 0;
+    right: 10%;
+    padding: 45px 17px 45px 17px;
+    z-index: 3;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+}
+
+.bigger-than-burgers h2 {
+    color: #1B1B1B;
+    text-transform: uppercase;
+    font-size: 39px;
+    color: #1B1B1B;
+    font-family: "Oswald", Sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    line-height: 1.5em;
+    letter-spacing: 0.7px;
+}
+
+/* Menu Section */
+.menu-section {
+    padding: 80px 0 60px;
+    background-color: #fff;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 80px;
+    width: 100%;
+}
+
+.section-title h2 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #232323;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.burgers-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* Exactly 2 columns as per screenshot */
+    column-gap: 60px;
+    row-gap: 80px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.burger-card {
+    display: flex;
+    align-items: flex-start;
+    /* Align to top */
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    transition: none;
+}
+
+.burger-card:hover {
+    transform: none;
+}
+
+.burger-card-img {
+    flex: 0 0 200px;
+    height: 200px;
+    border-radius: 50%;
+    /* Circular images */
+    overflow: hidden;
+    margin-right: 25px;
+}
+
+.burger-card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.burger-card-info {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.burger-card-info h5 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: #232323;
+    text-transform: uppercase;
+}
+
+.burger-card-info p {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 15px;
+    color: #232323;
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+.burger-price {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    color: #EE032B;
+    /* Vibrant red from source */
+    font-size: 1.5rem;
+    margin-bottom: 12px;
+}
+
+.burger-card .btn {
+    align-self: flex-start;
+    padding: 0;
+    background-color: transparent;
+    color: #1B1B1B;
+    text-decoration: none;
+    border: none;
+    border-bottom: 2px solid #EE032B;
+    /* Red underline as per screenshot */
+    border-radius: 0;
+    font-weight: 700;
+    font-size: 15px;
+    text-transform: uppercase;
+    transition: color 0.3s;
+}
+
+.burger-card .btn:hover {
+    background-color: transparent;
+    color: #EE032B;
+}
+
+/* Locations Section */
+.locations-section {
+    width: 100%;
+}
+
+.locations-header {
+    background-color: #15161A;
+    /* Dark background from screenshot */ 
+    text-align: center;
+}
+
+.locations-header h2 {
+    color: #fff;
+    font-family: 'Oswald', sans-serif;
+    font-size: 3rem;
+    font-weight: 700;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+.locations-content {
+    background-color: #AA1E2D; 
+    padding: 15px 0;
+    color: #fff;
+}
+
+.locations-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+}
+
+.location-item h3 {
+        font-family: "Open Sans", Sans-serif;
+    font-size: 25px;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 25px;
+    color: #fff;
+}
+
+.location-detail {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 15px;
+}
+
+.location-detail i {
+    color: #EF8B22;
+    /* Amber/Orange color for icons */
+    margin-right: 15px;
+    margin-top: 5px;
+    font-size: 1.1rem;
+}
+
+.location-detail a,
+.location-detail p {
+    color: #fff;
+    text-decoration: none;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1rem;
+    margin: 0;
+    line-height: 1.4;
+}
+
+.location-detail a:hover {
+    text-decoration: underline;
+}
+
+/* Responsiveness adjustments for existing sections */
+@media (max-width: 1024px) {
+    .burgers-grid {
+        grid-template-columns: 1fr;
+        row-gap: 60px;
+    }
+
+    .locations-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 50px;
+    }
+
+    .location-detail {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-burgers {
+        padding: 60px 0 100px;
+        min-height: auto;
+    }
+
+    .hero-burgers-content p {
+        font-size: 1.1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .bigger-than-burgers {
+        right: 0;
+        left: 0;
+        bottom: 0;
+        padding: 20px;
+        text-align: center;
+    }
+
+    .bigger-than-burgers h2 {
+        font-size: 24px;
+        line-height: 1.2em;
+    }
+
+    .section-title h2 {
+        font-size: 2rem;
+    }
+
+    .burger-card-img {
+        flex: 0 0 150px;
+        height: 150px;
+    }
+}
+
+@media (max-width: 576px) {
+    .burger-card {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .burger-card-img {
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+
+    .burger-card .btn {
+        align-self: center;
+    }
+}

@@ -1,0 +1,1147 @@
+/* ===================== INNER HERO ===================== */
+.inner-hero {
+    position: relative;
+    background-image: url('../img/stuffed-cheese-burger-lake-charles-68-edited.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 70px 0;
+    text-align: center;
+    color: #fff;
+}
+
+.inner-hero .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.65);
+}
+
+.inner-hero .hero-content {
+    position: relative;
+    z-index: 2;
+    font-family: "Oswald", Sans-serif;
+
+    &[data-align="left"] {
+        text-align: left;
+    }
+
+    p {
+        font-size: 18px;
+        font-weight: 700;
+        text-transform: none;
+        /* Match live site's sentence case */
+    }
+}
+
+.inner-hero .page-title {
+    font-size: 80px;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+@media(max-width: 768px) {
+    .inner-hero {
+        padding: 40px 15px;
+        /* Added side padding for mobile */
+    }
+
+    .inner-hero .page-title {
+        font-size: 32px;
+        /* Reduced further to prevent header overlap */
+        word-break: break-word;
+        /* Ensure long titles wrap */
+    }
+
+    .inner-hero .hero-desc {
+        font-size: 1.1rem;
+    }
+}
+
+.inner-hero .hero-desc {
+    font-size: 2em;
+    font-weight: 700;
+    text-transform: capitalize;
+    line-height: 1.2em;
+    letter-spacing: 0px;
+    color: #FBFBFB;
+}
+
+/* Specific Adjustments for Breakfast Hero Grid */
+.breakfast-hero .hero-lead {
+    font-family: "Oswald", sans-serif;
+    font-size: 18px;
+    font-weight: 800 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+}
+
+.breakfast-hero .page-title {
+    line-height: 1;
+    margin-bottom: 25px;
+}
+
+.breakfast-hero .hero-desc p {
+    font-family: 'Open Sans', 'Montserrat', sans-serif !important;
+    font-size: 18px !important;
+    font-weight: 400 !important;
+    text-transform: none !important;
+    line-height: 1.6 !important;
+    color: #fff;
+    margin-bottom: 25px;
+}
+
+/* ===================== ABOUT CARDS ===================== */
+.cards.inner-cards {
+    position: relative;
+    z-index: 10;
+    margin-bottom: 60px;
+}
+
+/* ===================== WHO WE ARE SECTION ===================== */
+.who-we-are-section {
+    padding: 80px 0;
+}
+
+.who-we-are-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 60px;
+}
+
+@media (min-width: 992px) {
+    .who-we-are-grid {
+        grid-template-columns: 1.1fr 0.9fr;
+        align-items: flex-start;
+    }
+}
+
+.who-we-are-left {
+    padding-right: 20px;
+}
+
+@media (max-width: 768px) {
+    .section-title-dark {
+        font-size: 28px;
+    }
+
+    .section-subtitle-red {
+        font-size: 13px;
+        margin-bottom: 15px;
+    }
+
+    .who-we-are-section {
+        padding: 40px 0;
+    }
+}
+
+.who-we-are-left p {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    color: #555;
+    line-height: 1.8;
+    margin-bottom: 15px;
+}
+
+.who-we-are-left p a {
+    color: #555;
+    text-decoration: underline;
+}
+
+.who-we-are-left strong {
+    color: #333;
+    font-weight: 700;
+}
+
+.who-we-are-right {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.dream-image {
+    position: relative;
+    margin-top: 20px;
+}
+
+.dream-image img {
+    width: 100%;
+}
+
+.badge-locally-owned {
+    position: absolute;
+    top: -40px;
+    left: 45px;
+    background-color: #f71822;
+    /* matching the image red circled badge */
+    color: white;
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-family: 'Oswald', sans-serif;
+    font-size: 22px;
+    font-weight: 800;
+    line-height: 1.2;
+    z-index: 10;
+}
+
+.dream-text p {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 15px;
+    color: #777;
+    line-height: 1.6;
+    margin-top: 10px;
+}
+
+/* ===================== SAAY PATEL MURAL ===================== */
+.saay-mural {
+    background-image: url('../img/Maplewood-Burgers-Lake-Charles-Wall-Mural.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 60px 0;
+    position: relative;
+}
+
+.container-mural {
+    display: flex;
+    justify-content: flex-start;
+    padding-left: 10%;
+}
+
+@media (max-width: 992px) {
+    .container-mural {
+        padding-left: 0;
+        justify-content: center;
+        width: 100%;
+        /* Wider on mobile */
+        padding: 0 15px;
+        margin: 0 auto;
+    }
+
+    .mural-box {
+        padding: 25px 20px;
+        /* Adjusted padding */
+    }
+}
+
+.mural-box {
+    background: #fff;
+    border: 5px solid #EAA322;
+    /* orange border */
+    padding: 35px 35px;
+    max-width: 480px;
+    border-radius: 20px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.mural-box p {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    color: #222;
+    line-height: 1.8;
+}
+
+.mural-box strong {
+    font-weight: 700;
+}
+
+/* ===================== NEWS / AWARD SECTION ===================== */
+.news-award {
+    padding: 80px 0 100px;
+    background: #fff;
+}
+
+.news-header {
+    margin-bottom: 50px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.news-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 34px;
+    color: #111;
+    line-height: 1.3;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    font-weight: 800;
+}
+
+.news-subtitle {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    color: #ed1c24;
+    margin-bottom: 20px;
+    font-weight: 800;
+}
+
+.news-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+}
+
+@media (min-width: 992px) {
+    .news-grid {
+        grid-template-columns: 1fr 1fr;
+        align-items: flex-start;
+    }
+}
+
+.news-article-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 24px;
+    color: #1b1b1b;
+    line-height: 1.2;
+    margin-bottom: 15px;
+    text-transform: capitalize;
+    font-weight: 800;
+}
+
+.news-text p {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 15px;
+    color: #555;
+    line-height: 1.6;
+}
+
+.news-btn {
+    background-color: #f7941e !important;
+    color: #fff !important;
+    margin-top: 10px;
+    padding: 12px 30px;
+    font-size: 16px;
+    font-weight: 800;
+    border-radius: 30px;
+    letter-spacing: 0.5px;
+}
+
+.news-btn:hover {
+    background-color: #df8215 !important;
+}
+
+.news-image img {
+    width: 100%;
+}
+
+/* ===================== BLOGS GRID ===================== */
+.blogs-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 35px 30px;
+    padding: 80px 0;
+    max-width: 1120px;
+    /* Match production container scale */
+    margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+    .blogs-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 992px) {
+    .blogs-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.blog-card {
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid rgba(170, 30, 45, 0.4);
+    /* Semi-transparent brand red */
+    box-shadow: none;
+    transition: all 0.3s ease;
+}
+
+.blog-card:hover {
+    transform: none;
+    box-shadow: 0px 0px 10px 0px rgba(198, 64, 64, 0.5);
+}
+
+.blog-card .blog-image {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+}
+
+.blog-card .blog-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.blog-card .blog-content {
+    padding: 15px;
+}
+
+.blog-card .blog-title {
+    margin-bottom: 10px;
+}
+
+.blog-card .blog-title a {
+    color: #2d2d2d;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.3;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+.blog-card .blog-date {
+    color: #7a7a7a;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+
+.blog-card .blog-excerpt {
+    color: #777;
+    font-size: 15px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.blog-card .read-more {
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: #AA1E2D;
+    text-decoration: none;
+}
+
+/* ===================== APPLICATION SECTION ===================== */
+.application-section {
+    background: #fdfdfd;
+}
+
+.application-wrapper {
+    background: #fff;
+    padding: 60px;
+    border-radius: 40px;
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.05);
+    transform: translate(0, -90px);
+}
+
+@media (max-width: 768px) {
+    .application-wrapper {
+        padding: 25px 15px;
+        transform: translate(0, -30px);
+        /* Less dramatic lift on mobile */
+        border-radius: 20px;
+    }
+
+    .application-grid {
+        gap: 40px;
+    }
+}
+
+.application-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 80px;
+}
+
+@media (min-width: 992px) {
+    .application-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.application-info .section-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 34px;
+    font-weight: 800;
+    color: #111;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+}
+
+.application-info p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    color: #444;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.application-form-container .form-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 30px;
+    font-weight: 800;
+    color: #222;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.application-form .form-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+@media (min-width: 576px) {
+    .application-form .form-row {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group.full-width {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: #222;
+    margin-bottom: 8px;
+}
+
+.form-group label span {
+    color: #ed1c24;
+}
+
+.form-group input[type="text"],
+.form-group input[type="tel"],
+.form-group input[type="email"],
+.form-group textarea {
+    padding: 12px 20px;
+    border: 1.5px solid #ed1c24;
+    border-radius: 30px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    outline: none;
+    transition: box-shadow 0.3s ease;
+}
+
+.form-group textarea {
+    border-radius: 20px;
+    resize: none;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    box-shadow: 0 0 10px rgba(237, 28, 36, 0.2);
+}
+
+.checkbox-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 5px;
+}
+
+.checkbox-group.vertical {
+    flex-direction: column;
+    gap: 10px;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+    cursor: pointer;
+}
+
+.checkbox-label input {
+    width: 16px;
+    height: 16px;
+    accent-color: #ed1c24;
+}
+
+.file-upload-wrapper {
+    border: 1.5px solid #ed1c24;
+    border-radius: 30px;
+    padding: 5px 15px;
+}
+
+.file-upload-wrapper input[type="file"] {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    color: #555;
+    width: 100%;
+}
+
+.submit-btn {
+    width: 100%;
+    background-color: #f2902b;
+    color: #fff;
+    padding: 15px;
+    border: none;
+    border-radius: 40px;
+    font-family: 'Oswald', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    text-transform: uppercase;
+    margin-top: 20px;
+}
+
+.submit-btn:hover {
+    background-color: #df7f1e;
+}
+
+/* ===================== CONTACT PAGE RESPONSIVE ===================== */
+.contact-page-section {
+    padding: 80px 0;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.location-container {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 40px;
+}
+
+@media (min-width: 992px) {
+    .location-container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.location-item {
+    background: #fff;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    border: 1px solid #f0f0f0;
+}
+
+.location-name {
+    font-family: 'Oswald', sans-serif;
+    font-size: 32px;
+    font-weight: 800;
+}
+
+.feedback-section {
+    margin-top: 60px;
+    padding-top: 40px;
+    border-top: 2px solid #f2f2f2;
+}
+
+@media (max-width: 768px) {
+    .feedback-title {
+        font-size: 24px !important;
+    }
+
+    .location-name {
+        font-size: 26px !important;
+    }
+
+    .contact-page-section {
+        padding: 30px 0;
+    }
+
+    .location-container {
+        gap: 30px;
+    }
+}
+
+/* ===================== LOCATIONS GRID RESPONSIVE ===================== */
+.locations-grid-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+    /* Added gap to prevent 'massive gaps' if margins were being used elsewhere */
+    padding-bottom: 50px;
+}
+
+@media (min-width: 992px) {
+    .locations-grid-container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.location-card {
+    background: #fff;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.location-card-header {
+    padding: 20px;
+    text-align: center;
+    color: #fff;
+}
+
+.location-card-header h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 24px;
+    margin: 0;
+}
+
+.bg-red {
+    background-color: #AA1E2D;
+}
+
+.bg-grey {
+    background-color: #333;
+}
+
+.location-card-footer {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    color: #fff;
+}
+
+.location-card-footer p {
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0;
+}
+
+/* ===================== BREAKFAST PAGE RESPONSIVE ===================== */
+.breakfast-hero-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+}
+
+@media (min-width: 992px) {
+    .breakfast-hero-grid {
+        grid-template-columns: 1.2fr 0.8fr;
+    }
+}
+
+.contact-lake-charles .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+@media (min-width: 992px) {
+    .contact-lake-charles .contact-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.contact-lake-charles .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    background: #25282b;
+}
+
+@media (min-width: 992px) {
+    .contact-lake-charles .contact-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.contact-info-block {
+    padding: 100px 80px;
+    background: #25282b;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.contact-heading {
+    font-family: 'Oswald', sans-serif;
+    font-size: 45px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    letter-spacing: 0px;
+    line-height: 1.2em;
+}
+
+.contact-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.contact-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    color: #fff;
+    font-size: 16px;
+    margin-bottom: 20px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    line-height: 1.7em;
+}
+
+.contact-list i {
+    color: #ed1c24;
+    font-size: 20px;
+    width: 25px;
+    text-align: center;
+    margin-top: 3px;
+}
+
+.contact-map-block {
+    height: auto;
+    min-height: 500px;
+}
+
+.contact-map-block iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .contact-info-block {
+        padding: 60px 40px;
+    }
+
+    .contact-heading {
+        font-size: 36px;
+    }
+
+    .contact-list li {
+        font-size: 17px;
+        gap: 15px;
+    }
+
+    .contact-map-block {
+        height: 400px;
+    }
+}
+
+
+/* ===================== REVIEWS PAGE RESPONSIVE ===================== */
+.reviews-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding: 60px 0;
+}
+
+@media (min-width: 992px) {
+    .reviews-grid {
+        grid-template-columns: 1fr 400px;
+        align-items: flex-start;
+    }
+}
+
+.box-shadow {
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+/* Store Badge Refinements */
+.reviews-app-badges {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    padding: 25px !important;
+    border-top: 1px solid #eee;
+}
+
+.reviews-app-badges img {
+    width: 180px !important;
+    height: auto !important;
+    transition: opacity 0.3s ease;
+}
+
+.reviews-app-badges img:hover {
+    opacity: 0.8;
+}
+
+.box-form {
+    background: #fff;
+    padding: 40px 30px;
+    border-radius: 28px;
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.08);
+}
+
+.form-main-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 26px;
+    font-weight: 800;
+    color: #111;
+    line-height: 1.2;
+    text-align: center;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+}
+
+.form-wrapper .text-field {
+    margin-bottom: 20px;
+}
+
+.form-wrapper .field-label {
+    display: block;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.form-wrapper .w-input {
+    width: 100%;
+    padding: 14px 20px;
+    border: 1.5px solid #eee;
+    border-radius: 30px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 15px;
+    color: #333;
+    background: #f9f9f9;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.form-wrapper .w-input:focus {
+    background: #fff;
+    border-color: #AA1E2D;
+    /* Production red */
+    box-shadow: 0 0 10px rgba(170, 30, 45, 0.1);
+}
+
+.checkbox-field {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    margin-bottom: 25px;
+    padding: 0 5px;
+}
+
+.checkbox-field input {
+    margin-top: 4px;
+    min-width: 18px;
+    height: 18px;
+    accent-color: #AA1E2D;
+    cursor: pointer;
+}
+
+.checkbox-field small {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 12px;
+    line-height: 1.6;
+    color: #777;
+    cursor: pointer;
+}
+
+.submit-button.full-width {
+    width: 100%;
+    padding: 16px;
+    font-size: 18px;
+    border-radius: 50px;
+    margin-top: 10px;
+}
+
+@media (max-width: 768px) {
+    .reviews-grid {
+        padding: 30px 0;
+        gap: 30px;
+    }
+
+    .reviews-tabs {
+        flex-direction: row;
+        /* Keep tabs side by side on mobile if possible, or wrap */
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+        margin-bottom: 20px;
+    }
+
+    .tab-item {
+        padding: 8px 15px;
+        font-size: 14px;
+        text-align: center;
+        border-radius: 20px;
+        flex: 1 1 auto;
+    }
+
+    .location-header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 20px 15px;
+        gap: 15px;
+    }
+
+    .location-logo {
+        margin-right: 0;
+        width: 60px;
+    }
+
+    .location-info h2 {
+        font-size: 22px !important;
+    }
+
+    .slider-container {
+        padding: 0;
+    }
+}
+
+/* ===================== ABOUT PAGE NEWS GRID RESPONSIVE ===================== */
+.news-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding: 60px 0;
+    align-items: center;
+}
+
+@media (min-width: 992px) {
+    .news-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.news-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+    .news-title {
+        font-size: 24px !important;
+    }
+
+    .news-subtitle {
+        font-size: 18px !important;
+    }
+
+    .news-text {
+        text-align: center;
+    }
+}
+
+/* ===================== BREAKFAST CAROUSEL ===================== */
+.breakfast-carousel-section {
+    background-color: #fff;
+    padding: 20px 0 0;
+    position: relative;
+    width: 100%;
+}
+
+.breakfast-swiper {
+    padding: 0 !important;
+    max-width: calc(100% - 160px);
+    /* Leave room for arrows on the sides */
+    margin: 0 auto !important;
+    position: relative;
+    overflow: hidden;
+}
+
+.breakfast-swiper .swiper-wrapper {
+    align-items: flex-start;
+}
+
+.carousel-item {
+    text-align: center;
+    background: #fff;
+    margin: 0;
+    width: 100%;
+}
+
+.item-image {
+    width: 100%;
+    margin-bottom: 15px;
+    background: #fff;
+    border-radius: 0;
+    overflow: hidden;
+}
+
+.item-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+.item-caption {
+    font-family: 'Oswald', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: #333;
+    text-transform: uppercase;
+    margin: 0 10px 40px;
+    line-height: 1.2;
+    letter-spacing: 0.1px;
+}
+
+/* Position arrows in the FAR white area outside the slider */
+.breakfast-carousel-section .swiper-button-next,
+.breakfast-carousel-section .swiper-button-prev {
+    color: #ed1c24 !important;
+    background: none !important;
+    width: 25px !important;
+    height: 25px !important;
+    top: 50% !important; /* Move to middle of parent */
+    transform: translateY(-50%) !important; /* Pull back by half height for perfect center */
+    z-index: 100 !important;
+    position: absolute !important;
+}
+
+.breakfast-carousel-section .swiper-button-next:after,
+.breakfast-carousel-section .swiper-button-prev:after {
+    font-size: 20px !important; /* Adjusted to fit 25x25 box */
+    font-weight: 900 !important;
+}
+
+.breakfast-carousel-section .swiper-button-next {
+    right: 15px !important;
+    /* Screen right edge */
+}
+
+.breakfast-carousel-section .swiper-button-prev {
+    left: 15px !important;
+    /* Screen left edge */
+}
+
+@media (max-width: 768px) {
+    .breakfast-swiper {
+        max-width: calc(100% - 70px);
+    }
+
+    .item-caption {
+        font-size: 14px;
+        margin-bottom: 20px;
+    }
+
+    .breakfast-carousel-section .swiper-button-next {
+        right: 5px !important;
+    }
+
+    .breakfast-carousel-section .swiper-button-prev {
+        left: 5px !important;
+    }
+}

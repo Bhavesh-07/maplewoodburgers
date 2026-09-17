@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings | Admin Dashboard</title>
+    <!-- Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Oswald:wght@500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="/static/css/admin-style.css">
+</head>
+
+<body>
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-logo">
+            <img src="/static/img/Maplewood-Burgers-Logo-Horiz.svg" alt="Maplewood Burgers">
+        </div>
+        <ul class="sidebar-nav">
+            <li>
+                <a href="/admin">
+                    <i class="fas fa-file-invoice"></i>
+                    <span>Applications</span>
+                </a>
+            </li>
+            <li>
+                <a href="/admin/settings" class="active">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </a>
+            </li>
+<li>
+                <a href="/admin/sync-menu" onclick="return confirm('Note: This will refresh all menu items and categories from the scrap data. Proceed?')">
+                    <i class="fas fa-sync-alt"></i>
+                    <span>Sync Menu Items</span>
+                </a>
+            </li>
+            <li style="margin-top: 20px;">
+                <a href="/" target="_blank">
+                    <i class="fas fa-external-link-alt"></i>
+                    <span>View Website</span>
+                </a>
+            </li>
+        </ul>
+        <div class="sidebar-footer">
+            <a href="/logout" class="logout-btn">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>Logout</span>
+            </a>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Top Bar -->
+        <div class="top-bar">
+            <div class="welcome-text">
+                <h2>Settings</h2>
+                <p>Manage integrations and chat widget details.</p>
+            </div>
+            <div class="top-actions">
+                <a href="/" target="_blank" class="btn-outline">Open Live Site</a>
+            </div>
+        </div>
+
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        {% for message in messages %}
+        <div class="flash-message">{{ message }}</div>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+
+        <div class="card" style="max-width: 800px;">
+            <div class="card-title">LeadConnector Integration</div>
+            <form action="/admin/settings" method="POST">
+                <div class="form-group">
+                    <label for="chat_widget_key">Chat Widget ID</label>
+                    <input type="text" name="chat_widget_key" id="chat_widget_key" class="form-control"
+                        placeholder="Enter your script widget-id"
+                        value="{% for s in current_settings %}{% if s.setting_key == 'chat_widget_key' %}{{ s.setting_value }}{% endif %}{% endfor %}">
+                </div>
+                <button type="submit" class="btn-save">Save Integration</button>
+            </form>
+        </div>
+
+        <div class="card" style="max-width: 800px;">
+            <div class="card-title">SMTP (Email) Settings</div>
+            <p style="color: var(--text-muted); font-size: 14px; margin-bottom: 25px;">Configure your email server to
+                enable automated notifications.</p>
+
+            <form action="/admin/settings" method="POST">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                    <div class="form-group">
+                        <label for="smtp_host">SMTP Host</label>
+                        <input type="text" name="smtp_host" id="smtp_host" class="form-control"
+                            value="{% for s in current_settings %}{% if s.setting_key == 'smtp_host' %}{{ s.setting_value }}{% endif %}{% endfor %}">
+                    </div>
+                    <div class="form-group">
+                        <label for="smtp_port">SMTP Port</label>
+                        <input type="text" name="smtp_port" id="smtp_port" class="form-control"
+                            value="{% for s in current_settings %}{% if s.setting_key == 'smtp_port' %}{{ s.setting_value }}{% endif %}{% endfor %}">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="smtp_user">SMTP Username (Email)</label>
+                    <input type="email" name="smtp_user" id="smtp_user" class="form-control"
+                        value="{% for s in current_settings %}{% if s.setting_key == 'smtp_user' %}{{ s.setting_value }}{% endif %}{% endfor %}">
+                </div>
+
+                <div class="form-group">
+                    <label for="smtp_password">SMTP Password / App Password</label>
+                    <input type="password" name="smtp_password" id="smtp_password" class="form-control"
+                        value="{% for s in current_settings %}{% if s.setting_key == 'smtp_password' %}{{ s.setting_value }}{% endif %}{% endfor %}">
+                </div>
+
+                <div class="form-group">
+                    <label for="smtp_from_email">Sender Email (From)</label>
+                    <input type="email" name="smtp_from_email" id="smtp_from_email" class="form-control"
+                        value="{% for s in current_settings %}{% if s.setting_key == 'smtp_from_email' %}{{ s.setting_value }}{% endif %}{% endfor %}">
+                </div>
+
+                <div style="margin-top: 30px;">
+                    <button type="submit" class="btn-save">Save SMTP Settings</button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <!-- LeadConnector Chat Widget -->
+    {% if settings.chat_widget_key %}
+    <script>
+    window.addEventListener("load", function () {
+        var lc_location_id = "{{ settings.chat_widget_key }}";
+        var settings = {
+            "location-id": lc_location_id,
+            "style": "--chat-widget-primary-color:#EF8B22; --chat-widget-active-color:#EF8B22; --chat-widget-bubble-color:#EF8B22",
+            "prompt-msg": "Hi there, have a question? Text us here.",
+            "heading": "Hi There! Have a question?",
+            "sub-heading": "Please enter your question or message below and we will get right back to you.",
+            "success-msg": "We'll be with you shortly!!",
+            "thank-you-msg": "Thank You!",
+            "legal-msg": "By submitting you agree to receive SMS or e-mails for the provided channel. Rates may be applied.",
+            "show-prompt": "true",
+            "auto-country-code": "true",
+            "enable-revisit-message": "true",
+            "revisit-prompt-msg": "Welcome back, how can we help you today?",
+            "use-email-field": "false"
+        };
+
+        var textWidget = document.createElement("chat-widget");
+        Object.keys(settings).forEach(function(key) {
+            textWidget.setAttribute(key, settings[key]);
+        });
+        document.body.appendChild(textWidget);
+
+        var moduleScript = document.createElement("script");
+        moduleScript.src = "https://widgets.leadconnectorhq.com/loader.js";
+        moduleScript.setAttribute("data-cdn-url", "https://widgets.leadconnectorhq.com");
+        document.body.appendChild(moduleScript);
+    });
+    </script>
+    {% endif %}
+</body>
+
+</html>

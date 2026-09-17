@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Full Menu - Maplewood Burgers</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="inc/assets/css/app.css">
+    <link rel="stylesheet" href="inc/assets/css/inner.css">
+    <link rel="stylesheet" href="inc/assets/css/burger.css">
+    <style>
+        .full-menu-header {
+            background-color: #15161A;
+            padding: 60px 0;
+            text-align: center;
+            color: #fff;
+        }
+        .full-menu-header h1 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 3.5rem;
+            text-transform: uppercase;
+            margin: 0;
+        }
+        .menu-layout {
+            display: flex;
+            align-items: flex-start;
+            gap: 40px;
+            padding: 60px 0;
+            position: relative;
+        }
+
+        .category-sidebar {
+            flex: 0 0 260px;
+            background: #f8f8f8;
+            padding: 20px;
+            border-radius: 12px;
+            position: sticky;
+            top: 100px;
+            z-index: 100;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            max-height: calc(100vh - 120px);
+            overflow-y: auto;
+        }
+        
+        .category-sidebar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .category-sidebar::-webkit-scrollbar-thumb {
+            background-color: #ddd;
+            border-radius: 4px;
+        }
+
+        .nav-inner {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .category-sidebar a {
+            color: #232323;
+            text-decoration: none;
+            font-family: 'Oswald', sans-serif;
+            text-transform: uppercase;
+            font-weight: 600;
+            font-size: 15px;
+            padding: 10px 15px;
+            border-radius: 6px;
+            transition: all 0.3s;
+            border: 1px solid transparent;
+        }
+
+        .category-sidebar a:hover {
+            color: #EE032B;
+            background: #fff;
+            border-color: #eee;
+            transform: translateX(5px);
+        }
+
+        .menu-section {
+            flex: 1;
+            min-width: 0;
+            padding: 0;
+        }
+
+        /* Location Modal Styles */
+        .location-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(5px);
+        }
+        .modal-content {
+            background: #fff;
+            width: 90%;
+            max-width: 500px;
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            position: relative;
+            animation: modalFadeIn 0.3s ease-out;
+        }
+        @keyframes modalFadeIn {
+            from { transform: translateY(-20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 24px;
+            cursor: pointer;
+            color: #999;
+        }
+        .modal-content h2 {
+            font-family: 'Oswald', sans-serif;
+            margin-bottom: 30px;
+            color: #15161A;
+            text-transform: uppercase;
+        }
+        .location-options {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .location-btn {
+            padding: 15px;
+            background: #f8f8f8;
+            border: 2px solid #eee;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-align: left;
+        }
+        .location-btn:hover {
+            border-color: #EE032B;
+            background: #fff;
+            transform: scale(1.02);
+        }
+        .location-btn i {
+            color: #EE032B;
+            font-size: 20px;
+        }
+        .location-btn div h4 {
+            margin: 0;
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.1rem;
+        }
+        .location-btn div p {
+            margin: 0;
+            font-size: 0.8rem;
+            color: #666;
+        }
+        .modal-view {
+            display: none;
+        }
+        .modal-view.active {
+            display: block;
+        }
+        .service-options {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .service-card {
+            padding: 30px;
+            background: #f8f8f8;
+            border: 2px solid #eee;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-align: center;
+        }
+        .service-card:hover {
+            border-color: #EE032B;
+            background: #fff;
+            transform: scale(1.05);
+        }
+        .service-card i {
+            font-size: 40px;
+            color: #EE032B;
+            margin-bottom: 15px;
+            display: block;
+        }
+        .service-card h4 {
+            font-family: 'Oswald', sans-serif;
+            text-transform: uppercase;
+            margin: 0;
+        }
+        .back-btn {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #EE032B;
+            cursor: pointer;
+            font-family: 'Oswald', sans-serif;
+            font-size: 14px;
+            text-transform: uppercase;
+        }
+        .back-btn:hover {
+            text-decoration: underline;
+        }
+
+        /* --- Responsive Styles --- */
+        .mt-category {
+            margin-top: 100px;
+        }
+
+        .sidebar-mobile-toggle {
+            display: none;
+        }
+
+        @media (max-width: 991px) {
+            .menu-layout.container {
+                width: 100%;
+                max-width: 100%;
+                flex-direction: column;
+                gap: 0;
+                padding: 40px 0;
+                margin: 0;
+            }
+            .category-sidebar {
+                flex: none;
+                width: 100%;
+                position: sticky;
+                top: 50px;
+                background: #15161A;
+                padding: 0;
+                border-radius: 0;
+                box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+                margin-bottom: 25px;
+                z-index: 100;
+            }
+            .sidebar-mobile-toggle {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 15px 5vw;
+                color: #fff;
+                font-family: 'Oswald', sans-serif;
+                font-size: 16px;
+                font-weight: 600;
+                text-transform: uppercase;
+                cursor: pointer;
+            }
+            .sidebar-hamburger {
+                display: flex;
+                flex-direction: column;
+                gap: 5px;
+                padding: 5px;
+            }
+            .sidebar-hamburger span {
+                width: 24px;
+                height: 2px;
+                background: #fff;
+                transition: 0.3s;
+            }
+            .nav-inner {
+                display: none;
+                flex-direction: column;
+                background: #fff;
+                padding: 10px 5vw;
+                border-bottom: 1px solid #eee;
+                max-height: 60vh;
+                overflow-y: auto;
+            }
+            .nav-inner.active {
+                display: flex;
+            }
+            .sidebar-mobile-toggle.active .sidebar-hamburger span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+            .sidebar-mobile-toggle.active .sidebar-hamburger span:nth-child(2) {
+                opacity: 0;
+            }
+            .sidebar-mobile-toggle.active .sidebar-hamburger span:nth-child(3) {
+                transform: rotate(-45deg) translate(5px, -5px);
+            }
+            .category-sidebar a {
+                font-size: 14px;
+                padding: 12px 0;
+                border: none;
+                border-bottom: 1px solid #f0f0f0;
+                border-radius: 0;
+                background: transparent;
+                color: #333;
+                font-family: 'Oswald', sans-serif;
+                font-weight: 600;
+                letter-spacing: 0.5px;
+                transition: all 0.2s;
+                text-align: left;
+            }
+            .category-sidebar a:last-child {
+                border-bottom: none;
+            }
+            .category-sidebar a:hover,
+            .category-sidebar a:active {
+                transform: translateX(5px);
+                background: transparent;
+                color: #EE032B;
+            }
+            .menu-section {
+                width: 100%;
+                padding: 0 5%;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .full-menu-header {
+                padding: 40px 0;
+            }
+            .full-menu-header h1 {
+                font-size: 2.5rem;
+            }
+            .mt-category {
+                margin-top: 50px;
+            }
+            .section-title {
+                margin-bottom: 40px;
+            }
+            .service-options {
+                grid-template-columns: 1fr;
+            }
+            .modal-content {
+                padding: 25px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .full-menu-header {
+                padding: 30px 0;
+            }
+            .full-menu-header h1 {
+                font-size: 2rem;
+            }
+            .category-sidebar {
+                padding: 10px 0;
+            }
+            .nav-inner {
+                gap: 10px;
+            }
+            .category-sidebar a {
+                font-size: 13px;
+                padding: 5px;
+            }
+            .location-btn {
+                padding: 10px;
+            }
+            .location-btn i {
+                font-size: 16px;
+                gap: 10px;
+            }
+            .location-btn div h4 {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+    <header class="header">
+        <div class="container-fluid nav-wrapper">
+            <div class="logo">
+                <a href="index.html"><img src="inc/assets/img/Maplewood-Burgers-Logo-Horiz.svg" style="width:100%"></a>
+            </div>
+
+            <nav class="nav">
+                <ul>
+                    <li><a href="who-we-are.html">Who We Are</a></li>
+                    <li><a href="burgers.html">Our Burgers</a></li>
+                    <li><a href="catering-menu.html">Catering</a></li>
+                    <li><a href="locations.html">Locations <i class="fas fa-chevron-down"></i></a>
+                        <ul>
+                            <li><a href="moss-bluff-2.html">Lake Charles <i class="fas fa-chevron-right"></i></a>
+                                <ul>
+                                    <li><a href="breakfast.html">Breakfast Lake Charles</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="moss-bluff.html">Moss Bluff</a></li>
+                            <li><a href="sulphur.html">Sulphur</a></li>
+                        </ul>
+                    </li>
+                    <li><a class="active" href="full-menu">Menus</a></li>
+                    <li><a href="contact.html">Get In Touch <i class="fas fa-chevron-down"></i></a>
+                        <ul>
+                            <li><a href="application.html">Join The Team</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="blogs.html">Blogs</a></li>
+                    <li><a href="reviews.html">Reviews</a></li>
+                </ul>
+            </nav>
+
+            <a href="https://maplewoodburgers.appfront.app/?openSignup=true" target="_blank" class="btn order-btn">Order
+                Now!</a>
+            <!-- Hamburger -->
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- ================= HERO ================= -->
+    <section class="full-menu-header">
+        <div class="container">
+            <h1>Our Full Menu</h1>
+            <p>Delicious burgers, breakfast, and more!</p>
+        </div>
+    </section>
+
+    <!-- ================= MENU LAYOUT ================= -->
+    <div class="container menu-layout">
+        <!-- ================= CATEGORY NAV SIDEBAR ================= -->
+        <aside class="category-sidebar">
+            <div class="sidebar-mobile-toggle" onclick="toggleCategoryMenu()">
+                <span>Menu Categories</span>
+                <div class="sidebar-hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+            <div class="nav-inner" id="categoryNavInner">
+                {% for cat in categories %}
+                <a href="#cat-{{ cat.id }}" onclick="closeCategoryMenu()">{{ cat.name }}</a>
+                {% endfor %}
+            </div>
+        </aside>
+
+        <!-- ================= MENU SECTIONS ================= -->
+        <main class="menu-section">
+            {% for cat in categories %}
+            <div id="cat-{{ cat.id }}" class="section-title {% if not loop.first %}mt-category{% endif %}">
+                <h2>{{ cat.name }}</h2>
+            </div>
+            <div class="burgers-grid">
+                {% for item in cat.menu_items %}
+                <article class="burger-card">
+                    <div class="burger-card-img">
+                        <img src="{{ item.image_url or 'inc/assets/img/hamburger-2.jpg' }}" alt="{{ item.name }}">
+                    </div>
+                    <div class="burger-card-info">
+                        <h5>{{ item.name }}</h5>
+                        <p>{{ item.description }}</p>
+                        <div class="burger-price">${{ "%.2f"|format(item.price) if item.price else '0.00' }}</div>
+                        <a href="javascript:void(0)" onclick="selectLocationForItem('{{ item.id }}', '{{ item.name|replace("'", "\\'") }}')" class="btn">ORDER NOW</a>
+                    </div>
+                </article>
+                {% endfor %}
+            </div>
+            {% endfor %}
+        </main>
+    </div>
+
+    <!-- ================= LOCATION MODAL ================= -->
+    <div id="locationModal" class="location-modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeModal()">&times;</span>
+            
+            <!-- Step 1: Serving Type -->
+            <div id="serviceView" class="modal-view active">
+                <h2>How would you like your order?</h2>
+                <div class="service-options">
+                    <div class="service-card" onclick="selectService('pickup')">
+                        <i class="fas fa-shopping-bag"></i>
+                        <h4>Pickup</h4>
+                    </div>
+                    <div class="service-card" onclick="selectService('delivery')">
+                        <i class="fas fa-truck"></i>
+                        <h4>Delivery</h4>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 2: Location -->
+            <div id="locationView" class="modal-view">
+                <div class="back-btn" onclick="showView('serviceView')"><i class="fas fa-arrow-left"></i> Back</div>
+                <h2>Select Your Location</h2>
+                <div class="location-options">
+                    <div class="location-btn" onclick="goToAppfront('60b37bdfaa3ff40dede8708e', 'Lake Charles')">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Lake Charles</h4>
+                            <p>4453 Nelson Rd, Lake Charles, LA</p>
+                        </div>
+                    </div>
+                    <div class="location-btn" onclick="goToAppfront('60b76a700f9c010e1eb66e46', 'Moss Bluff')">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Moss Bluff</h4>
+                            <p>1355 Sam Houston Jones Pkwy, Moss Bluff, LA</p>
+                        </div>
+                    </div>
+                    <div class="location-btn" onclick="goToAppfront('60b76a7c7f5f520e0f3705c3', 'Sulphur')">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Sulphur</h4>
+                            <p>4124 Maplewood Dr, Sulphur, LA</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-logo">
+                <a href="index.html"><img src="inc/assets/img/Maplewood-Burgers-Logo-Stacked.svg" alt="Maplewood Burgers"></a>
+            </div>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2021 Maplewood Burgers</p>
+        </div>
+    </footer>
+
+    <script src="inc/assets/js/swiper-bundle.min.js"></script>
+    <script src="inc/assets/js/app.js"></script>
+    <script>
+        let currentItemId = null;
+        let currentItemName = null;
+        let selectedServiceType = 'pickup';
+
+        function selectLocationForItem(id, name) {
+            currentItemId = id;
+            currentItemName = name;
+            showView('serviceView');
+            document.getElementById('locationModal').style.display = 'flex';
+        }
+
+        function selectService(type) {
+            selectedServiceType = type;
+            showView('locationView');
+        }
+
+        function showView(viewId) {
+            document.querySelectorAll('.modal-view').forEach(v => v.classList.remove('active'));
+            document.getElementById(viewId).classList.add('active');
+        }
+
+        function closeModal() {
+            document.getElementById('locationModal').style.display = 'none';
+        }
+
+        function goToAppfront(branchId, branchName) {
+            if (!currentItemId) return;
+            
+            const encodedItemName = encodeURIComponent(currentItemName);
+            const encodedBranchName = encodeURIComponent(branchName);
+            
+            const url = `https://maplewoodburgers.appfront.app/order/items/${currentItemId}/?branchId=${branchId}&branchName=${encodedBranchName}&fromItemId=${currentItemId}&itemName=${encodedItemName}&search=&servingOptionType=${selectedServiceType}`;
+            
+            window.open(url, '_blank');
+            closeModal();
+        }
+
+        // Sidebar Category Menu Toggles
+        function toggleCategoryMenu() {
+            var inner = document.getElementById('categoryNavInner');
+            var toggle = document.querySelector('.sidebar-mobile-toggle');
+            if(inner.classList.contains('active')) {
+                inner.classList.remove('active');
+                toggle.classList.remove('active');
+            } else {
+                inner.classList.add('active');
+                toggle.classList.add('active');
+            }
+        }
+
+        function closeCategoryMenu() {
+            if(window.innerWidth <= 991) {
+                var inner = document.getElementById('categoryNavInner');
+                var toggle = document.querySelector('.sidebar-mobile-toggle');
+                if(inner && inner.classList.contains('active')) {
+                    inner.classList.remove('active');
+                    toggle.classList.remove('active');
+                }
+            }
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById('locationModal');
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+    </script>
+
+</body>
+</html>

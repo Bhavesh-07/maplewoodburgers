@@ -1,0 +1,1193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- ===== SEO META TAGS ===== -->
+    <title>Our Full Menu - Maplewood Burgers</title>
+    <meta name="description"
+        content="Explore our massive selection of award-winning Stuffed Burgers, Southern Classics, and decadent Shakes. Discover why we're the #1 Burger Joint in Southwest Louisiana!">
+    <meta name="robots" content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large">
+    <link rel="canonical" href="https://www.maplewoodburgers.com/full-menu">
+
+    <!-- Open Graph (Facebook / WhatsApp) -->
+    <meta property="og:locale" content="en_US">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Our Full Menu - Maplewood Burgers">
+    <meta property="og:description"
+        content="Explore our massive selection of award-winning Stuffed Burgers, Southern Classics, and decadent Shakes. Discover why we're the #1 Burger Joint in Southwest Louisiana!">
+    <meta property="og:url" content="https://www.maplewoodburgers.com/full-menu">
+    <meta property="og:site_name" content="Maplewood Burgers">
+    <meta property="og:image"
+        content="https://www.maplewoodburgers.com/wp-content/uploads/2021/05/Maplewood-Burgers-1200x630-1.png">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Our Full Menu - Maplewood Burgers">
+    <meta name="twitter:description"
+        content="Explore our massive selection of award-winning Stuffed Burgers, Southern Classics, and decadent Shakes. Discover why we're the #1 Burger Joint in Southwest Louisiana!">
+    <meta name="twitter:image"
+        content="https://www.maplewoodburgers.com/wp-content/uploads/2021/05/Maplewood-Burgers-1200x630-1.png">
+
+    <!-- ===== STRUCTURED DATA (SEO Schema) ===== -->
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Restaurant",
+  "name": "Maplewood Burgers",
+  "url": "https://www.maplewoodburgers.com",
+  "image": "https://www.maplewoodburgers.com/wp-content/uploads/2021/05/Maplewood-Burgers-1200x630-1.png",
+  "telephone": "(337) 602-9002",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "4453 Nelson Rd",
+    "addressLocality": "Lake Charles",
+    "addressRegion": "LA",
+    "postalCode": "70605",
+    "addressCountry": "US"
+  },
+  "servesCuisine": "Burgers",
+  "priceRange": "$$"
+}
+</script>
+
+    <!-- ===== GOOGLE ANALYTICS (GA4) ===== -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-H35SFNYH78"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-H35SFNYH78');
+    </script>
+    <!-- ================= END SEO ================= -->
+
+    <!-- Google Font -->
+    <link rel="stylesheet" href="/static/fonts/google-fonts/css/master-fonts.css">
+    <link rel="stylesheet" href="/static/css/lib/font-awesome/css/all.min.css">
+    <link rel="stylesheet" href="/static/css/app.css">
+    <link rel="stylesheet" href="/static/css/inner.css">
+    <link rel="stylesheet" href="inc/assets/css/burger.css">
+    <style>
+        /* Premium inner-hero overrides if necessary, relying mostly on inner.css */
+        .menu-list-view {
+            gap: 10px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .burgers-grid .burger-action {
+            padding: 0px 10px 15px 10px;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .burger-card .btn{
+            align-items: center;
+        }
+        .menu-layout {
+            display: flex;
+            align-items: flex-start;
+            gap: 40px;
+            padding: 60px 0;
+            position: relative;
+        }
+
+        .category-sidebar {
+            flex: 0 0 260px;
+            background: #f8f8f8;
+            padding: 20px;
+            border-radius: 12px;
+            position: sticky;
+            top: 100px;
+            z-index: 100;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            max-height: calc(100vh - 120px);
+            overflow-y: auto;
+        }
+
+        .category-sidebar::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .category-sidebar::-webkit-scrollbar-thumb {
+            background-color: #ddd;
+            border-radius: 4px;
+        }
+
+        .nav-inner {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .category-sidebar a {
+            color: #232323;
+            text-decoration: none;
+            font-family: 'Oswald', sans-serif;
+            text-transform: uppercase;
+            font-weight: 600;
+            font-size: 15px;
+            padding: 10px 15px;
+            border-radius: 6px;
+            transition: all 0.3s;
+            border: 1px solid transparent;
+            display: block;
+        }
+
+        .category-sidebar a:hover {
+            color: #EE032B;
+            background: #fff;
+            border-color: #eee;
+            transform: translateX(5px);
+        }
+
+        .category-sidebar a.active {
+            color: #fff !important;
+            background: #aa182c !important;
+            border-color: #aa182c !important;
+            box-shadow: 0 4px 12px rgba(238, 3, 43, 0.25);
+            transform: translateX(5px);
+        }
+
+        .category-panel {
+            display: none;
+            animation: fadeInMenu .25s ease-in-out;
+        }
+
+        .category-panel.active {
+            display: block;
+        }
+
+        @keyframes fadeInMenu {
+            from {
+                opacity: 0;
+                transform: translateY(6px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .menu-section {
+            flex: 1;
+            min-width: 0;
+            padding: 0;
+        }
+
+        /* Location Modal Styles */
+        .location-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            background: #fff;
+            width: 90%;
+            max-width: 500px;
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            position: relative;
+            animation: modalFadeIn 0.3s ease-out;
+        }
+
+        @keyframes modalFadeIn {
+            from {
+                transform: translateY(-20px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 24px;
+            cursor: pointer;
+            color: #999;
+        }
+
+        .modal-content h2 {
+            font-family: 'Oswald', sans-serif;
+            margin-bottom: 30px;
+            color: #15161A;
+            text-transform: uppercase;
+        }
+
+        .location-options {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .location-btn {
+            padding: 15px;
+            background: #f8f8f8;
+            border: 2px solid #eee;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-align: left;
+        }
+
+        .location-btn:hover {
+            border-color: #EE032B;
+            background: #fff;
+            transform: scale(1.02);
+        }
+
+        .location-btn i {
+            color: #EE032B;
+            font-size: 20px;
+        }
+
+        .location-btn div h4 {
+            margin: 0;
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.1rem;
+        }
+
+        .location-btn div p {
+            margin: 0;
+            font-size: 0.8rem;
+            color: #666;
+        }
+
+        .modal-view {
+            display: none;
+        }
+
+        .modal-view.active {
+            display: block;
+        }
+
+        .service-options {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .service-card {
+            padding: 30px;
+            background: #f8f8f8;
+            border: 2px solid #eee;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-align: center;
+        }
+
+        .service-card:hover {
+            border-color: #EE032B;
+            background: #fff;
+            transform: scale(1.05);
+        }
+
+        .service-card i {
+            font-size: 40px;
+            color: #EE032B;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .service-card h4 {
+            font-family: 'Oswald', sans-serif;
+            text-transform: uppercase;
+            margin: 0;
+        }
+
+        .back-btn {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #EE032B;
+            cursor: pointer;
+            font-family: 'Oswald', sans-serif;
+            font-size: 14px;
+            text-transform: uppercase;
+        }
+
+        .back-btn:hover {
+            text-decoration: underline;
+        }
+
+        /* --- Responsive Styles --- */
+        .mt-category {
+            margin-top: 100px;
+        }
+
+        .sidebar-mobile-toggle {
+            display: none;
+        }
+
+        @media (max-width: 991px) {
+            .menu-layout.container {
+                width: 100%;
+                max-width: 100%;
+                display: block;
+                padding: 40px 0;
+                margin: 0;
+            }
+
+            .category-sidebar {
+                flex: none;
+                width: 100%;
+                position: -webkit-sticky;
+                position: sticky;
+                top: 85px;
+                background: #15161A;
+                border-top: 1px solid #EE032B;
+                padding: 0;
+                border-radius: 0;
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+                margin-bottom: 25px;
+                z-index: 100;
+            }
+
+            .sidebar-mobile-toggle {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 15px 5vw;
+                color: #fff;
+                font-family: 'Oswald', sans-serif;
+                font-size: 16px;
+                font-weight: 600;
+                text-transform: uppercase;
+                cursor: pointer;
+            }
+
+            .sidebar-hamburger {
+                display: flex;
+                flex-direction: column;
+                gap: 5px;
+                padding: 5px;
+            }
+
+            .sidebar-hamburger span {
+                width: 24px;
+                height: 2px;
+                background: #fff;
+                transition: 0.3s;
+            }
+
+            .nav-inner {
+                display: none;
+                flex-direction: column;
+                background: #fff;
+                padding: 10px 5vw;
+                border-bottom: 1px solid #eee;
+                max-height: 60vh;
+                overflow-y: auto;
+            }
+
+            .nav-inner.active {
+                display: flex;
+            }
+
+            .sidebar-mobile-toggle.active .sidebar-hamburger span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+
+            .sidebar-mobile-toggle.active .sidebar-hamburger span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .sidebar-mobile-toggle.active .sidebar-hamburger span:nth-child(3) {
+                transform: rotate(-45deg) translate(5px, -5px);
+            }
+
+            .category-sidebar a {
+                font-size: 14px;
+                padding: 12px 0;
+                border: none;
+                border-bottom: 1px solid #f0f0f0;
+                border-radius: 0;
+                background: transparent;
+                color: #333;
+                font-family: 'Oswald', sans-serif;
+                font-weight: 600;
+                letter-spacing: 0.5px;
+                transition: all 0.2s;
+                text-align: left;
+            }
+
+            .category-sidebar a:last-child {
+                border-bottom: none;
+            }
+
+            .category-sidebar a:hover {
+                transform: translateX(5px);
+                background: transparent;
+                color: #EE032B;
+            }
+
+            .category-sidebar a.active {
+                color: #EE032B !important;
+                background: #aa182c !important;
+                padding-left: 10px !important;
+                font-weight: 700;
+                border-left: 3px solid #EE032B;
+                border-bottom: 1px solid #f0f0f0;
+                box-shadow: none !important;
+                transform: none !important;
+            }
+
+            .menu-section {
+                width: 100%;
+                padding: 0 5%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .full-menu-header {
+                padding: 40px 0;
+            }
+
+            .full-menu-header h1 {
+                font-size: 2.5rem;
+            }
+
+            .mt-category {
+                margin-top: 50px;
+            }
+
+            .section-title {
+                margin-bottom: 40px;
+            }
+
+            .service-options {
+                grid-template-columns: 1fr;
+            }
+
+            .modal-content {
+                padding: 25px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .full-menu-header {
+                padding: 30px 0;
+            }
+
+            .full-menu-header h1 {
+                font-size: 2rem;
+            }
+
+            .category-sidebar {
+                padding: 10px 0;
+            }
+
+            .nav-inner {
+                gap: 10px;
+            }
+
+            .category-sidebar a {
+                font-size: 13px;
+                padding: 5px;
+            }
+
+            .location-btn {
+                padding: 10px;
+            }
+
+            .location-btn i {
+                font-size: 16px;
+                gap: 10px;
+            }
+
+            .location-btn div h4 {
+                font-size: 1rem;
+            }
+        }
+
+        .burgers-grid {
+            display: grid;
+            column-gap: 24px;
+            row-gap: 24px;
+            margin: 0 auto;
+            padding: 0 15px;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        }
+
+        .burgers-grid .burger-card {
+            display: flex;
+            background: #9c27b0;
+            border: none;
+            flex-direction: column;
+            border-radius: 20px;
+            background-color: #fdefcc;
+            box-shadow: rgba(0, 0, 0, 0.1) 0px 8px 24px;
+            transition: transform 0.2s, box-shadow 0.2s;
+            border-width: medium;
+            border-style: none;
+            border-color: currentcolor;
+            border-image: none;
+            transform: translateY(0px);
+            border: 2px solid #fff;
+        }
+
+        .burger-card-img {
+            flex: unset;
+            height: 190px;
+            overflow: hidden;
+            border-radius: 0;
+            margin-right: 0;
+            margin-bottom: 0;
+        }
+
+        .burger-card-img img {
+            width: 320px;
+            height: 190px;
+            border-radius: 20px;
+            padding: 5px;
+        }
+
+        .burgers-grid .burger-card .burger-card-info {
+            padding: 10px 10px 15px 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            width: 100%;
+        }
+
+        .burger-card-info h5 {
+            font-size: 1rem;
+            margin-bottom: 0;
+        }
+
+        .burger-card-info p {
+            margin-bottom: 0;
+            line-height: 1.6;
+            display: -webkit-box;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            font-size: 12px;
+        }
+
+        .burgers-grid .burger-card .burger-card-info .burger-price {
+            font-size: 0.75rem;
+            margin-bottom: 0;
+            gap: 5px;
+        }
+
+        .burger-card .btn {
+            font-size: 0.75rem
+        }
+
+
+        /* ===== MENU GRID / LIST VIEW ===== */
+        .menu-section-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .menu-view-switcher {
+            display: inline-flex;
+            align-items: center;
+            gap: 2px;
+            padding: 4px;
+            background: #f8f8f8;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            flex-shrink: 0;
+        }
+
+        .menu-view-btn {
+            width: 36px;
+            height: 34px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border: 0;
+            border-radius: 6px;
+            background: transparent;
+            color: #666;
+            cursor: pointer;
+            transition: all .2s ease;
+        }
+
+        .menu-view-btn:hover,
+        .menu-view-btn.active {
+            background: #fff;
+            color: #aa182c;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, .08);
+        }
+
+        .burgers-grid.menu-list-view {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            padding: 0 15px;
+        }
+
+        .menu-list-view .burger-card {
+            width: 100%;
+            min-height: 100px;
+            display: grid;
+            grid-template-columns: 110px minmax(0, 1fr) auto;
+            align-items: center;
+            gap: 18px;
+            padding: 10px;
+            background: #fdefcc;
+            border-radius: 14px;
+            box-shadow: rgba(0, 0, 0, .08) 0 4px 14px;
+            border: 2px solid #fff;
+        }
+
+        .menu-list-view .burger-card-img {
+            width: 110px;
+            height: 82px;
+            flex: none;
+            border-radius: 10px;
+        }
+
+        .menu-list-view .burger-card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+            padding: 3px;
+        }
+
+        .menu-list-view .burger-card-info {
+            min-width: 0;
+            padding: 4px 0;
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) auto;
+            grid-template-areas:
+                "name price"
+                "description action";
+            gap: 0 !important;
+            column-gap: 20px;
+            row-gap: 6px;
+        }
+
+        .menu-list-view .burger-card-info h5 {
+            grid-area: name;
+            margin: 0;
+        }
+
+        .menu-list-view .burger-card-info p {
+            grid-area: description;
+            margin: 0;
+            text-overflow: ellipsis;
+        }
+
+        .burger-price {
+            margin-bottom: 0;
+            color: #aa182c;
+        }
+
+        .menu-list-view .burger-price {
+            grid-area: price;
+            white-space: nowrap;
+        }
+
+        .menu-list-view .burger-action .btn {
+            grid-area: action;
+            justify-self: end;
+            white-space: nowrap;
+        }
+
+        @media (max-width: 768px) {
+            .menu-section-header {
+                align-items: center;
+            }
+
+            .menu-view-btn {
+                width: 34px;
+            }
+
+            .burgers-grid.menu-list-view {
+                gap: 10px;
+            }
+
+            .menu-list-view .burger-card {
+                grid-template-columns: 80px minmax(0, 1fr);
+                gap: 12px;
+            }
+
+            .menu-list-view .burger-card-img {
+                width: 80px;
+                height: 80px;
+            }
+
+            .menu-list-view .burger-card-info {
+                grid-template-columns: 1fr auto;
+                grid-template-areas:
+                    "name price"
+                    "description description"
+                    "action action";
+            }
+
+            .menu-list-view .burger-action .btn {
+                justify-self: start;
+            }
+            .burger-card-info h5 {
+                font-size: 0.75rem; 
+            }
+            .burger-price{font-size: 1rem}
+            .section-title {text-align: left;font-size: medium;}
+        }
+
+        @media (max-width: 480px) {
+            .menu-section-header {
+                gap: 10px;
+            }
+
+            .menu-view-switcher {
+                padding: 3px;
+            }
+            /* 64px minmax(0, 1fr)*/
+            .menu-list-view .burger-card {
+                grid-template-columns:65px auto 65px;
+                gap: 5px;
+                text-align: left;
+            }
+
+            .menu-list-view .burger-card-img {
+                width: 64px;
+                height: 64px;
+            }
+
+            .menu-list-view .burger-card-info {
+                column-gap: 8px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+    <header class="header">
+        <div class="container-fluid nav-wrapper">
+            <div class="logo">
+                <a href="/"><img src="inc/assets/img/Maplewood-Burgers-Logo-Horiz.svg" alt="MaplewoodBurgers"
+                        style="width:100%"></a>
+            </div>
+
+            <nav class="nav">
+                <ul>
+                    <li><a href="who-we-are">Who We Are</a></li>
+                    <li><a href="burgers">Our Burgers</a></li>
+                    <li><a href="catering-menu">Catering</a></li>
+                    <li><a href="locations">Locations <i class="fas fa-chevron-down"></i></a>
+                        <ul>
+                            <li><a href="lake-charles">Lake Charles <i class="fas fa-chevron-right"></i></a>
+                                <ul>
+                                    <li><a href="breakfast-lake-charles">Breakfast Lake Charles <i
+                                                class="fas fa-chevron-right"></i></a>
+                                </ul>
+                            </li>
+                            <li><a href="moss-bluff">Moss Bluff</a></li>
+                            <li><a href="sulphur">Sulphur</a></li>
+                        </ul>
+                    </li>
+                    <li><a class="active" href="full-menu">Menus</a></li>
+                    <li><a href="contact">Get In Touch <i class="fas fa-chevron-down"></i></a>
+                        <ul>
+                            <li><a href="application">Join The Team</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="blogs">Blogs</a></li>
+                    <li><a href="reviews">Reviews</a></li>
+                </ul>
+            </nav>
+
+
+            <a href="https://order.maplewoodburgers.com/?openSignup=true" target="_blank" class="btn order-btn">Order
+                Now!</a>
+            <!-- Hamburger -->
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- ================= PREMIUM HERO ================= -->
+    <section class="inner-hero" style="background-image: url('inc/assets/img/hero-bg.jpg'); padding: 120px 0;">
+        <div class="overlay" style="background: rgba(0, 0, 0, 0.75);"></div>
+        <div class="hero-content container">
+            <h1 class="page-title">Our Full Menu</h1>
+            <p class="hero-desc">Delicious burgers, breakfast, and more!</p>
+        </div>
+    </section>
+
+    <!-- ================= MENU LAYOUT ================= -->
+    <div class="container menu-layout">
+        <!-- ================= CATEGORY NAV SIDEBAR ================= -->
+        <aside class="category-sidebar">
+            <div class="sidebar-mobile-toggle" onclick="toggleCategoryMenu()">
+                <span>Menu Categories</span>
+                <div class="sidebar-hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+            <div class="nav-inner" id="categoryNavInner">
+                {% for cat in categories %}
+                <a href="#cat-{{ cat.id }}" class="category-nav-link {% if loop.first %}active{% endif %}"
+                    data-category-id="cat-{{ cat.id }}">{{ cat.name }}</a>
+                {% endfor %}
+            </div>
+        </aside>
+
+        <!-- ================= MENU SECTIONS ================= -->
+        <main class="menu-section">
+            {% for cat in categories %}
+            <div id="cat-{{ cat.id }}" class="category-panel {% if loop.first %}active{% endif %}"
+                data-category-panel="cat-{{ cat.id }}">
+                <div class="section-title menu-section-header">
+                    <h5>{{ cat.name }}</h5>
+                    <div class="menu-view-switcher" role="group" aria-label="{{ cat.name }} view">
+                        <button type="button" class="menu-view-btn active" data-view="grid" aria-label="Grid view"
+                            aria-pressed="true" title="Grid View">
+                            <i class="fas fa-th-large" aria-hidden="true"></i>
+                        </button>
+                        <button type="button" class="menu-view-btn" data-view="list" aria-label="List view"
+                            aria-pressed="false" title="List View">
+                            <i class="fas fa-list" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="burgers-grid" data-menu-view-container>
+                    {% for item in cat.menu_items %}
+                    <article class="burger-card">
+                        <div class="burger-card-img">
+                            <img src="{{ item.image_url or 'inc/assets/img/hamburger-2.jpg' }}" alt="{{ item.name }}">
+                        </div>
+                        <div class="burger-card-info">
+                            <h5>{{ item.name }}</h5>
+                            <p>{{ item.description }}</p>
+                        </div>
+                        <div class="burger-action">
+                            <div class="burger-price">${{ "%.2f"|format(item.price) if item.price else '0.00' }}</div>
+                            <a href="javascript:void(0)"
+                                onclick="selectLocationForItem('{{ item.id }}', '{{ item.name|replace("'", "\\'") }}')"
+                                class="btn">ORDER NOW</a>
+                        </div>
+                    </article>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endfor %}
+        </main>
+    </div>
+
+    <!-- ================= LOCATION MODAL ================= -->
+    <div id="locationModal" class="location-modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeModal()">&times;</span>
+
+            <!-- Step 1: Serving Type -->
+            <div id="serviceView" class="modal-view active">
+                <h2>How would you like your order?</h2>
+                <div class="service-options">
+                    <div class="service-card" onclick="selectService('pickup')">
+                        <i class="fas fa-shopping-bag"></i>
+                        <h4>Pickup</h4>
+                    </div>
+                    <div class="service-card" onclick="selectService('delivery')">
+                        <i class="fas fa-truck"></i>
+                        <h4>Delivery</h4>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 2: Location -->
+            <div id="locationView" class="modal-view">
+                <div class="back-btn" onclick="showView('serviceView')"><i class="fas fa-arrow-left"></i> Back</div>
+                <h2>Select Your Location</h2>
+                <div class="location-options">
+                    <div class="location-btn" onclick="goToAppfront('60b37bdfaa3ff40dede8708e', 'Lake Charles')">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Lake Charles</h4>
+                            <p>4453 Nelson Rd, Lake Charles, LA</p>
+                        </div>
+                    </div>
+                    <div class="location-btn" onclick="goToAppfront('60b76a700f9c010e1eb66e46', 'Moss Bluff')">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Moss Bluff</h4>
+                            <p>1355 Sam Houston Jones Pkwy, Moss Bluff, LA</p>
+                        </div>
+                    </div>
+                    <div class="location-btn" onclick="goToAppfront('60b76a7c7f5f520e0f3705c3', 'Sulphur')">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Sulphur</h4>
+                            <p>4124 Maplewood Dr, Sulphur, LA</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= FOOTER ================= -->
+    <div class="mobile-order">
+        <a href="https://maplewoodburgers.appfront.app/" class="btn" target="_blank">
+            <div style="display: flex;align-items: center;gap: 10px;">
+                <i aria-hidden="true" class="fas fa-hamburger"></i><span>order</span>
+            </div>
+        </a>
+    </div>
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-logo">
+                <a href="/"><img src="inc/assets/img/Maplewood-Burgers-Logo-Stacked.svg" alt="Maplewood Burgers"></a>
+            </div>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2021 Maplewood Burgers</p>
+        </div>
+    </footer>
+
+    <script src="inc/assets/js/swiper-bundle.min.js"></script>
+    <script src="inc/assets/js/app.js"></script>
+    <script>
+        let currentItemId = null;
+        let currentItemName = null;
+        let selectedServiceType = 'pickup';
+
+        function selectLocationForItem(id, name) {
+            currentItemId = id;
+            currentItemName = name;
+            showView('serviceView');
+            document.getElementById('locationModal').style.display = 'flex';
+        }
+
+        function selectService(type) {
+            selectedServiceType = type;
+            showView('locationView');
+        }
+
+        function showView(viewId) {
+            document.querySelectorAll('.modal-view').forEach(v => v.classList.remove('active'));
+            document.getElementById(viewId).classList.add('active');
+        }
+
+        function closeModal() {
+            document.getElementById('locationModal').style.display = 'none';
+        }
+
+        function goToAppfront(branchId, branchName) {
+            if (!currentItemId) return;
+
+            const encodedItemName = encodeURIComponent(currentItemName);
+            const encodedBranchName = encodeURIComponent(branchName);
+
+            const url = `https://maplewoodburgers.appfront.app/order/items/${currentItemId}/?branchId=${branchId}&branchName=${encodedBranchName}&fromItemId=${currentItemId}&itemName=${encodedItemName}&search=&servingOptionType=${selectedServiceType}`;
+
+            window.open(url, '_blank');
+            closeModal();
+        }
+
+        // Sidebar Category Menu Toggles
+        function toggleCategoryMenu() {
+            var inner = document.getElementById('categoryNavInner');
+            var toggle = document.querySelector('.sidebar-mobile-toggle');
+            if (inner.classList.contains('active')) {
+                inner.classList.remove('active');
+                toggle.classList.remove('active');
+            } else {
+                inner.classList.add('active');
+                toggle.classList.add('active');
+            }
+        }
+
+        function closeCategoryMenu() {
+            if (window.innerWidth <= 991) {
+                var inner = document.getElementById('categoryNavInner');
+                var toggle = document.querySelector('.sidebar-mobile-toggle');
+                if (inner && inner.classList.contains('active')) {
+                    inner.classList.remove('active');
+                    toggle.classList.remove('active');
+                }
+            }
+        }
+
+        window.onclick = function (event) {
+            const modal = document.getElementById('locationModal');
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+
+        // Dynamically compute header height to prevent overlapping issues with sticky
+        function adjustSidebarTop() {
+            var sidebar = document.querySelector('.category-sidebar');
+            var header = document.querySelector('.header');
+            if (sidebar && header) {
+                if (window.innerWidth <= 991) {
+                    // Force the menu top buffer to correctly align underneath whatever height the main header has loaded with
+                    sidebar.style.top = header.offsetHeight + 'px';
+                } else {
+                    sidebar.style.top = ''; // Let standard CSS handle desktop
+                }
+            }
+        }
+        window.addEventListener('load', adjustSidebarTop);
+        window.addEventListener('resize', adjustSidebarTop);
+        window.addEventListener('scroll', adjustSidebarTop);
+
+        // Menu Grid/List View Switcher (Replaces container class cleanly)
+        (function () {
+            const STORAGE_KEY = 'maplewood-menu-view';
+
+            function applyMenuView(container, view) {
+                if (!container) return;
+                if (view === 'list') {
+                    container.classList.remove('burgers-grid');
+                    container.classList.add('menu-list-view');
+                } else {
+                    container.classList.remove('menu-list-view');
+                    container.classList.add('burgers-grid');
+                }
+            }
+
+            function setMenuView(view) {
+                const targetView = (view === 'list') ? 'list' : 'grid';
+
+                // 1. Replace view class on every menu container
+                document.querySelectorAll('[data-menu-view-container]').forEach(function (container) {
+                    applyMenuView(container, targetView);
+                });
+
+                // 2. Synchronize active state on all switcher buttons
+                document.querySelectorAll('.menu-view-btn').forEach(function (button) {
+                    const active = button.getAttribute('data-view') === targetView;
+                    button.classList.toggle('active', active);
+                    button.setAttribute('aria-pressed', active ? 'true' : 'false');
+                });
+
+                // 3. Persist user choice in localStorage
+                try {
+                    localStorage.setItem(STORAGE_KEY, targetView);
+                } catch (e) { }
+            }
+
+            window.applyMenuViewGlobal = setMenuView;
+
+            // Event delegation for grid/list view switcher buttons
+            document.addEventListener('click', function (e) {
+                const btn = e.target.closest('.menu-view-btn');
+                if (!btn) return;
+                e.preventDefault();
+                const view = btn.getAttribute('data-view');
+                if (view === 'grid' || view === 'list') {
+                    setMenuView(view);
+                }
+            });
+
+            // Initialize with saved preference (default to grid)
+            let initialView = 'grid';
+            try {
+                const stored = localStorage.getItem(STORAGE_KEY);
+                if (stored === 'grid' || stored === 'list') initialView = stored;
+            } catch (e) { }
+
+            setMenuView(initialView);
+        })();
+
+        // Category Selection & Tab Filtering (First active by default)
+        function showCategory(categoryId) {
+            if (!categoryId) return;
+            const targetId = categoryId.replace(/^#/, '');
+
+            // 1. Hide all category panels and show the selected one
+            const panels = document.querySelectorAll('.category-panel');
+            let found = false;
+            panels.forEach(function (panel) {
+                const isTarget = panel.id === targetId || panel.getAttribute('data-category-panel') === targetId;
+                panel.classList.toggle('active', isTarget);
+                if (isTarget) found = true;
+            });
+
+            // Fallback: if not found, show first panel
+            if (!found && panels.length > 0) {
+                panels[0].classList.add('active');
+            }
+
+            // 2. Update active state on sidebar navigation links
+            document.querySelectorAll('#categoryNavInner a').forEach(function (link) {
+                const linkTarget = (link.getAttribute('data-category-id') || link.getAttribute('href') || '').replace(/^#/, '');
+                const isTarget = linkTarget === targetId;
+                link.classList.toggle('active', isTarget);
+            });
+
+            // 3. Re-apply user's saved Grid/List view to active panel
+            if (typeof window.applyMenuViewGlobal === 'function') {
+                const savedView = localStorage.getItem('maplewood-menu-view') || 'grid';
+                window.applyMenuViewGlobal(savedView);
+            }
+
+            closeCategoryMenu();
+        }
+
+        // Delegate click for category sidebar links
+        document.addEventListener('click', function (e) {
+            const link = e.target.closest('#categoryNavInner a');
+            if (!link) return;
+            e.preventDefault();
+            const catId = (link.getAttribute('data-category-id') || link.getAttribute('href') || '').replace(/^#/, '');
+            if (catId) {
+                showCategory(catId);
+            }
+        });
+
+        // Initialize default active category on load (First menu category active)
+        window.addEventListener('DOMContentLoaded', function () {
+            const hash = window.location.hash ? window.location.hash.replace(/^#/, '') : null;
+            if (hash && document.getElementById(hash)) {
+                showCategory(hash);
+            } else {
+                const firstLink = document.querySelector('#categoryNavInner a');
+                if (firstLink) {
+                    const firstCatId = (firstLink.getAttribute('data-category-id') || firstLink.getAttribute('href') || '').replace(/^#/, '');
+                    showCategory(firstCatId);
+                }
+            }
+        });
+
+    </script>
+
+</body>
+
+</html>

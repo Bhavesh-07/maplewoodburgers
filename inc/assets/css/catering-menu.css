@@ -1,0 +1,313 @@
+/* Catering Menu Styles */
+
+.main-content {
+    background-color: #ffffff;
+    padding-bottom: 20px;
+}
+
+.container {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* Hero Section */
+.catering-hero {
+    padding-top: 10px;
+    padding-bottom: 0px;
+}
+
+.catering-title-wrapper {
+    margin-bottom: 30px;
+    border-bottom: 1px solid #eeeeee;
+    padding-bottom: 20px;
+}
+
+.catering-page-title {
+    font-family: "Oswald", Sans-serif;
+    font-size: 3.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #1B1B1B;
+    margin-bottom: 10px;
+}
+
+.catering-post-info {
+    font-family: "Open Sans", Sans-serif;
+    color: #7A7A7A;
+    font-size: 0.9rem;
+}
+
+.catering-menu-graphic {
+    text-align: left;
+    margin-bottom: 40px;
+}
+
+/* Details Sections */
+.catering-details-section {
+    font-family: "Open Sans", Sans-serif;
+    line-height: 1.6;
+    color: #333333;
+}
+
+.catering-details-section h2 {
+    font-family: "Oswald", Sans-serif;
+    font-size: 32px; /* Reduced for base mobile/desktop transition */
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #1B1B1B;
+    margin-top: 25px;
+    margin-bottom: 5px;
+    line-height: 1.25;
+}
+
+.title-with-emoji {
+    display: flex !important;
+    align-items: center;
+    gap: 15px;
+    text-align: left;
+}
+
+.catering-details-section h3 {
+    font-family: "Oswald", Sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #1B1B1B;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    line-height: 1.2;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.catering-details-section h4 {
+    font-family: "Oswald", Sans-serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #EE032B;
+    margin-top: 25px;
+    margin-bottom: 10px;
+}
+
+.catering-details-section p {
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+}
+
+/* Lists */
+.catering-details-section ul {
+    list-style: disc;
+    margin-left: 40px;
+    margin-bottom: 25px;
+}
+
+.catering-details-section li {
+    margin-bottom: 10px;
+    font-size: 1.05rem;
+}
+
+.catering-features ul,
+.favorites ul {
+    list-style: disc;
+    margin-left: 40px;
+    margin-bottom: 25px;
+}
+
+.platter-list {
+    list-style: none;
+    margin-left: 0;
+}
+
+.catering-features li,
+.favorites li {
+    color: #1B1B1B;
+    margin-bottom: 8px;
+    font-size: 1.05rem;
+}
+
+.catering-features li::marker,
+.favorites li::marker {
+    color: #888888;
+}
+
+.catering-contact ul {
+    list-style: disc;
+    margin-left: 30px;
+}
+
+.catering-contact li {
+    margin-bottom: 5px;
+    font-size: 1.05rem;
+}
+
+.contact-icon {
+    color: #333333;
+    margin-right: 8px;
+    width: 18px;
+    text-align: center;
+}
+
+.contact-icon-red {
+    color: #EE032B;
+    margin-right: 8px;
+    width: 18px;
+    text-align: center;
+}
+
+.catering-contact li::marker {
+    color: #000000;
+}
+
+.catering-contact a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* Dividers */
+.divider {
+    border: none;
+    border-top: 1px solid gray;
+    background-color: transparent;
+    margin: 0;
+}
+
+/* Ordering Section */
+.platter-title {
+    font-family: "Oswald", Sans-serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #1B1B1B !important;
+    text-transform: none !important;
+    margin-top: 5px !important;
+    margin-bottom: 15px !important;
+}
+
+.platter-icon {
+    width: 24px;
+    display: block;
+    margin-bottom: 5px;
+}
+
+
+/* Footer Note */
+.hashtags {
+    color: #333333;
+    font-weight: 700;
+    font-size: 0.95rem !important;
+    margin-top: 20px;
+}
+
+.burger {
+    width: 32px; /* Smaller emoji */
+}
+
+.check {
+    width: 28px;
+}
+
+.ordericon {
+    width: 20px;
+    vertical-align: middle;
+    margin-top: -3px; /* Fine-tune alignment */
+}
+
+/* Footer Extra Actions & Links */
+.catering-footer-note {
+    margin-bottom: 30px;
+}
+
+.footer-note-heading {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.megaphone-icon {
+    width: 38px;
+}
+
+.footer-note-text {
+    color: #666;
+    font-size: 1.05rem;
+    margin-bottom: 20px;
+}
+
+.footer-divider {
+    border: none;
+    border-top: 1px solid #cccccc;
+    margin-bottom: 25px;
+}
+
+.post-navigation {
+    margin-bottom: 20px;
+}
+
+.prev-post {
+    color: #EE032B;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.prev-post i {
+    margin-right: 5px;
+}
+
+.share-icons {
+    margin: 20px 0px 30px 0px;
+}
+
+.social-share {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 32px;
+    height: 32px;
+    background-color: #EE032B;
+    color: white;
+    border-radius: 50%;
+    text-decoration: none;
+    margin-right: 10px;
+    font-size: 0.9rem;
+}
+
+.related-articles-heading {
+    font-family: 'Oswald', Sans-serif;
+    font-size: 3rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #1B1B1B;
+    margin-bottom: 20px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .catering-page-title {
+        font-size: 2rem;
+    }
+
+    .catering-details-section h2 {
+        font-size: 24px; /* Even smaller on mobile */
+    }
+
+    .catering-details-section h3 {
+        font-size: 22px;
+    }
+
+    .catering-details-section li {
+        font-size: 15px;
+    }
+
+    .catering-details-section ul {
+        margin-left: 20px;
+    }
+
+    .platter-list li {
+        flex-direction: column;
+    }
+}

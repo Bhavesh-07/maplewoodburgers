@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings | Admin Dashboard</title>
+    <!-- Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Oswald:wght@500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/lib/font-awesome/css/all.min.css">
+    <link rel="stylesheet" href="/static/css/admin-style.css">
+</head>
+
+<body>
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-logo">
+            <img src="/static/img/Maplewood-Burgers-Logo-Horiz.svg" alt="Maplewood Burgers">
+        </div>
+        <ul class="sidebar-nav">
+            <li>
+                <a href="/access-panel">
+                    <i class="fas fa-file-invoice"></i>
+                    <span>Applications</span>
+                </a>
+            </li>
+            <li>
+                <a href="/access-panel/loyalty">
+                    <i class="fas fa-users"></i>
+                    <span>Loyalty Program</span>
+                </a>
+            </li>
+            <li>
+                <a href="/access-panel/blogs">
+                    <i class="fas fa-blog"></i>
+                    <span>Blogs</span>
+                </a>
+            </li>
+            <li>
+                <a href="/access-panel/settings" class="active">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </a>
+            </li>
+            <li>
+                <a href="/access-panel/sync-menu" class="sync-menu-link">
+                    <i class="fas fa-sync-alt"></i>
+                    <span>Sync Menu Items</span>
+                </a>
+            </li>
+            <li style="margin-top: 20px;">
+                <a href="/" target="_blank">
+                    <i class="fas fa-external-link-alt"></i>
+                    <span>View Website</span>
+                </a>
+            </li>
+        </ul>
+        <div class="sidebar-footer">
+            <a href="/logout" class="logout-btn">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>Logout</span>
+            </a>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Top Bar -->
+        <div class="top-bar">
+            <div class="welcome-text">
+                <h2>Settings</h2>
+                <p>Manage integrations and chat widget details.</p>
+            </div>
+            <div class="top-actions">
+                <a href="/" target="_blank" class="btn-outline">Open Live Site</a>
+            </div>
+        </div>
+
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        {% for message in messages %}
+        <div class="flash-message">{{ message }}</div>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+        <div style="display:flex;flex-direction: row; align-content: stretch;gap:1rem;width:100%">
+        <div class="card" style="flex: 1 auto;">
+            <div class="card-title" style="margin-bottom: 1rem;">LeadConnector Integration</div>
+            <form action="/access-panel/settings" method="POST">
+                <div class="form-group">
+                    <label for="chat_widget_key">Chat Widget ID</label>
+                    <input type="text" name="chat_widget_key" id="chat_widget_key" class="form-control"
+                        placeholder="Enter your script widget-id"
+                        value="{% for s in current_settings %}{% if s.setting_key == 'chat_widget_key' %}{{ s.setting_value }}{% endif %}{% endfor %}">
+                </div>
+                <div style="display: flex;flex-direction: row;justify-content: end;">
+                <button type="submit" class="btn-save btn-primary">Save Integration</button>
+            </div>
+            </form>
+        </div>
+
+        <div class="card" style="flex: 1 auto;">
+            <div class="card-title">SMTP (Email) Settings</div>
+            <p style="color: var(--text-muted); font-size: 14px; margin-bottom: 25px;">Configure your email server to
+                enable automated notifications.</p>
+
+            <form action="/access-panel/settings" method="POST">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                    <div class="form-group">
+                        <label for="smtp_host">SMTP Host</label>
+                        <input type="text" name="smtp_host" id="smtp_host" class="form-control"
+                            value="{% for s in current_settings %}{% if s.setting_key == 'smtp_host' %}{{ s.setting_value }}{% endif %}{% endfor %}">
+                    </div>
+                    <div class="form-group">
+                        <label for="smtp_port">SMTP Port</label>
+                        <input type="text" name="smtp_port" id="smtp_port" class="form-control"
+                            value="{% for s in current_settings %}{% if s.setting_key == 'smtp_port' %}{{ s.setting_value }}{% endif %}{% endfor %}">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="smtp_user">SMTP Username (Email)</label>
+                    <input type="email" name="smtp_user" id="smtp_user" class="form-control"
+                        value="{% for s in current_settings %}{% if s.setting_key == 'smtp_user' %}{{ s.setting_value }}{% endif %}{% endfor %}">
+                </div>
+
+                <div class="form-group">
+                    <label for="smtp_password">SMTP Password / App Password</label>
+                    <input type="password" name="smtp_password" id="smtp_password" class="form-control"
+                        value="{% for s in current_settings %}{% if s.setting_key == 'smtp_password' %}{{ s.setting_value }}{% endif %}{% endfor %}">
+                </div>
+
+                <div class="form-group">
+                    <label for="smtp_from_email">Sender Email (From)</label>
+                    <input type="email" name="smtp_from_email" id="smtp_from_email" class="form-control"
+                        value="{% for s in current_settings %}{% if s.setting_key == 'smtp_from_email' %}{{ s.setting_value }}{% endif %}{% endfor %}">
+                </div>
+
+                <div class="form-group">
+                    <label for="smtp_to_email">Job Application Recipient Email (To)</label>
+                    <input type="email" name="smtp_to_email" id="smtp_to_email" class="form-control"
+                        value="{% for s in current_settings %}{% if s.setting_key == 'smtp_to_email' %}{{ s.setting_value }}{% endif %}{% endfor %}">
+                </div>
+
+                <div class="form-group">
+                    <label for="smtp_reply_to">Reply-To Email</label>
+                    <input type="email" name="smtp_reply_to" id="smtp_reply_to" class="form-control"
+                        value="{% for s in current_settings %}{% if s.setting_key == 'smtp_reply_to' %}{{ s.setting_value }}{% endif %}{% endfor %}">
+                </div>
+
+                <div style="display: flex;flex-direction: row;justify-content: end;">
+                    <button type="submit" class="btn-save btn-primary">Save SMTP Settings</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+        <div class="card" style="margin-top: 1rem;">
+            <div class="card-title">Change Admin Password</div>
+            <p style="color: var(--text-muted); font-size: 14px; margin-bottom: 25px;">Update your login password. You will need to enter your current password first.</p>
+
+            <form action="/access-panel/change-password" method="POST" id="change-password-form">
+                <div class="form-group">
+                    <label for="current_password">Current Password</label>
+                    <input type="password" name="current_password" id="current_password" class="form-control" required
+                        placeholder="Enter your current password">
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                    <div class="form-group">
+                        <label for="new_password">New Password</label>
+                        <input type="password" name="new_password" id="new_password" class="form-control" required
+                            minlength="6" placeholder="Minimum 6 characters">
+                    </div>
+                    <div class="form-group">
+                        <label for="confirm_password">Confirm New Password</label>
+                        <input type="password" name="confirm_password" id="confirm_password" class="form-control" required
+                            minlength="6" placeholder="Re-enter new password">
+                    </div>
+                </div>
+
+                <div id="password-match-error" style="color: #b5122b; font-size: 13px; margin-bottom: 12px; display: none;">
+                    <i class="fas fa-exclamation-circle"></i> Passwords do not match.
+                </div>
+
+                <div style="display: flex;flex-direction: row;justify-content: end;">
+                    <button type="submit" class="btn-save btn-primary" id="btn-change-password">
+                        <i class="fas fa-key" style="margin-right: 6px;"></i>Update Password
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <div class="card" style="margin-top: 1rem;">
+            <div class="card-title">Change Admin Email</div>
+            <p style="color: var(--text-muted); font-size: 14px; margin-bottom: 25px;">Update the registered email address used for password recovery.</p>
+
+            <form action="/access-panel/change-email" method="POST">
+                <div class="form-group">
+                    <label for="admin_email">Admin Email Address</label>
+                    <input type="email" name="admin_email" id="admin_email" class="form-control" required
+                        placeholder="Enter admin email address" value="{{ admin_email }}">
+                </div>
+
+                <div style="display: flex;flex-direction: row;justify-content: end;">
+                    <button type="submit" class="btn-save btn-primary">
+                        <i class="fas fa-envelope" style="margin-right: 6px;"></i>Update Email
+                    </button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+
+    <!-- Custom Confirmation Modal Styles -->
+    <style>
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(17, 18, 22, 0.65);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        .modal-container {
+            background: #ffffff;
+            border-radius: 24px;
+            width: 90%;
+            max-width: 480px;
+            padding: 32px;
+            box-shadow: 0 20px 50px rgba(17, 18, 22, 0.25);
+            border: 1px solid #e4e7ec;
+            text-align: center;
+            transform: scale(0.9);
+            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        .modal-overlay.active .modal-container {
+            transform: scale(1);
+        }
+        .modal-icon {
+            width: 64px;
+            height: 64px;
+            background: rgba(181, 18, 43, 0.1);
+            color: #b5122b;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 26px;
+            margin-bottom: 24px;
+        }
+        .modal-title {
+            font-family: 'Oswald', sans-serif;
+            text-transform: uppercase;
+            font-size: 24px;
+            color: #111216;
+            margin-bottom: 12px;
+            letter-spacing: 0.5px;
+        }
+        .modal-message {
+            color: #667085;
+            font-size: 15px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+        .modal-actions {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+        }
+        .modal-btn {
+            padding: 12px 28px;
+            border-radius: 14px;
+            font-size: 14px;
+            font-weight: 700;
+            cursor: pointer;
+            border: none;
+            transition: all 0.2s ease;
+        }
+        .modal-btn-cancel {
+            background: #f3f4f6;
+            color: #475467;
+            border: 1px solid #e4e7ec;
+        }
+        .modal-btn-cancel:hover {
+            background: #e4e7ec;
+            color: #111216;
+        }
+        .modal-btn-confirm {
+            background: linear-gradient(135deg, #b5122b, #8f0e22);
+            color: #ffffff;
+        }
+        .modal-btn-confirm:hover {
+            background: linear-gradient(135deg, #8f0e22, #6b0a19);
+            transform: translateY(-1px);
+        }
+    </style>
+
+    <!-- Custom Confirmation Modal -->
+    <div class="modal-overlay" id="confirm-modal-overlay">
+        <div class="modal-container">
+            <div class="modal-icon">
+                <i class="fas fa-sync-alt"></i>
+            </div>
+            <h3 class="modal-title">Sync Menu Items</h3>
+            <p class="modal-message">Note: This will refresh all menu items and categories from the scrap data. Proceed?</p>
+            <div class="modal-actions">
+                <button class="modal-btn modal-btn-cancel" id="confirm-modal-cancel">Cancel</button>
+                <button class="modal-btn modal-btn-confirm" id="confirm-modal-proceed">Proceed</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const syncLinks = document.querySelectorAll('.sync-menu-link');
+        const overlay = document.getElementById('confirm-modal-overlay');
+        const cancelBtn = document.getElementById('confirm-modal-cancel');
+        const proceedBtn = document.getElementById('confirm-modal-proceed');
+        let targetUrl = '';
+
+        syncLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                targetUrl = link.getAttribute('href');
+                overlay.classList.add('active');
+            });
+        });
+
+        cancelBtn.addEventListener('click', () => {
+            overlay.classList.remove('active');
+        });
+
+        proceedBtn.addEventListener('click', () => {
+            if (targetUrl) {
+                window.location.href = targetUrl;
+            }
+        });
+
+        // Close when clicking outside modal
+        overlay.addEventListener('click', (e) => {
+            if (e.target === overlay) {
+                overlay.classList.remove('active');
+            }
+        });
+
+        // --- Change Password Form Validation ---
+        const pwdForm = document.getElementById('change-password-form');
+        const newPwd = document.getElementById('new_password');
+        const confirmPwd = document.getElementById('confirm_password');
+        const matchError = document.getElementById('password-match-error');
+
+        if (pwdForm) {
+            pwdForm.addEventListener('submit', (e) => {
+                matchError.style.display = 'none';
+                if (newPwd.value !== confirmPwd.value) {
+                    e.preventDefault();
+                    matchError.style.display = 'block';
+                    confirmPwd.focus();
+                }
+            });
+
+            // Live feedback while typing
+            confirmPwd.addEventListener('input', () => {
+                if (confirmPwd.value && newPwd.value !== confirmPwd.value) {
+                    matchError.style.display = 'block';
+                } else {
+                    matchError.style.display = 'none';
+                }
+            });
+        }
+    });
+    </script>
+</body>
+
+</html>

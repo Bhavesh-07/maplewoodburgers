@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Locations - Maplewood Burgers</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel='stylesheet' id='font-awesome-5-all-css'
+        href='https://www.maplewoodburgers.com/wp-content/plugins/elementor/assets/lib/font-awesome/css/all.min.css?ver=3.30.4'
+        media='all' />
+    <link rel="stylesheet" href="inc/assets/css/app.css">
+    <link rel="stylesheet" href="inc/assets/css/inner.css">
+      <script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init', '1211563076010573');fbq('track', 'PageView');</script><noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1211563076010573&ev=PageView&noscript=1" /></noscript>
+    <style>
+        /* Slider & Header Styles matching screenshot */
+        .reviews-grid .box-shadow {
+                outline: 2px dashed #c92f2f;
+                background: #fbfbfb;
+                border-radius: 20px;
+                padding-bottom: 30px;
+                outline-offset: -13px;
+        }
+
+        .reviews-tabs {
+            display: flex;
+            /*border-bottom: 1px solid #c92f2f;*/
+            border:0;
+            margin-bottom: 0px;
+        }
+
+        .tab-item {
+            padding: 15px 30px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: #555;
+            cursor: pointer;
+            background: #fbfbfb;
+            border: 1px solid transparent;
+            border-bottom: none;
+            transition: 0.2s;
+        }
+
+        .tab-item.active {
+            color: #c92f2f;  
+           background: #F8F6F4;
+            border-radius: 20px;
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+            border:0;
+        }
+        .tab-content.active{
+            background: #F8F6F4; 
+            border-radius: 12px;
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+            border:0;
+        }
+        .location-header {
+            display: flex;
+            align-items: flex-start;
+            padding: 30px 40px;
+        }
+
+        .location-logo {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            margin-right: 20px;
+            object-fit: cover;
+            background: #fff;
+            border: 1px solid #ddd;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .location-info h3 {
+            margin: 0 0 5px 0;
+            color: #c92f2f;
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+
+        .rating-line {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #f39c12;
+            margin-bottom: 5px;
+        }
+
+        .rating-line .score {
+            color: #e67e22;
+        }
+
+        .location-info p {
+            margin: 3px 0;
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        .google-powered {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .google-powered img {
+            height: 14px;
+        }
+
+        .review-btn-google {
+            display: inline-flex;
+            align-items: center;
+            background: #ac2323;
+            color: #fff !important;
+            padding: 6px 15px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.85rem;
+            margin-top: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            border: 1px solid #951d1d;
+        }
+
+        .review-btn-google img {
+            width: 18px;
+            height: 18px;
+            background: #fff;
+            border-radius: 50%;
+            padding: 2px;
+            margin-left: 8px;
+        }
+
+        .slider-container {
+            position: relative;
+            padding: 0 40px;
+            display: flex;
+            align-items: center;
+        }
+
+        .slider-btn {
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            color: #ccc;
+            cursor: pointer;
+            padding: 10px;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 10;
+        }
+
+        .slider-btn:hover {
+            color: #999;
+        }
+
+        .slider-btn.prev {
+            left: 0px;
+        }
+
+        .slider-btn.next {
+            right: 0px;
+        }
+
+        .slider-track {
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+            padding: 10px 5px;
+        }
+
+        .slide {
+            display: none;
+            background: #fff;
+            border-radius: 10px;
+            padding: 25px 30px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            position: relative;
+            border: 1px solid #e0e0e0;
+            min-height: 180px;
+        }
+
+        .slide.active {
+            display: block;
+            animation: fadeEffect 0.4s;
+        }
+
+        @keyframes fadeEffect {
+            from {
+                opacity: 0;
+                transform: scale(0.98);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .slide-google-icon {
+            position: absolute;
+            top: 25px;
+            right: 25px;
+            width: 20px;
+        }
+
+        .slide-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .slide-header img {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            margin-right: 15px;
+        }
+
+        .slide-author {
+            flex-grow: 1;
+        }
+
+        .slide-author h4 {
+            margin: 0 0 2px 0;
+            color: #9f1414;
+            font-size: 1.05rem;
+            font-weight: 700;
+        }
+
+        .slide-author span {
+            color: #888;
+            font-size: 0.85rem;
+        }
+
+        .slide-stars {
+            color: #f39c12;
+            margin-bottom: 12px;
+            font-size: 1.1rem;
+        }
+
+        .slide-text {
+            color: #333;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        iframe {
+            filter: none;
+            transition-duration: 0s;
+        }
+    </style>
+
+    <script src="https://www.google.com/recaptcha/enterprise.js?6Ld89VYsAAAAAP474pCxXq_XFwvjZTq5WJfD7JkM"></script>
+</head>
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+    <header class="header">
+        <div class="container-fluid nav-wrapper">
+            <div class="logo">
+                <a href="index.html"><img src="inc/assets/img/Maplewood-Burgers-Logo-Horiz.svg" style="width:100%"></a>
+            </div>
+
+            <nav class="nav">
+                <ul>
+                    <li><a href="who-we-are.html">Who We Are</a></li>
+                    <li><a href="burgers.html">Our Burgers</a></li>
+                    <li><a href="catering-menu.html">Catering</a></li>
+                    <li><a href="locations.html">Locations <i class="fas fa-chevron-down"></i></a>
+                        <ul>
+                            <li><a href="moss-bluff-2.html">Lake Charles <i class="fas fa-chevron-right"></i></a>
+                                <ul>
+                                    <li><a href="breakfast.html">Breakfast Lake Charles</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="moss-bluff.html">Moss Bluff</a></li>
+                            <li><a href="sulphur.html">Sulphur</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="menu.html">Menus</a></li>
+                    <li><a href="contact.html">Get In Touch <i class="fas fa-chevron-down"></i></a>
+                        <ul>
+                            <li><a href="application.html">Join The Team</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="blogs.html">Blogs</a></li>
+                    <li><a href="reviews.html" class="active">Reviews</a></li>
+                </ul>
+            </nav>
+
+            <a href="https://maplewoodburgers.appfront.app/?openSignup=true" target="_blank" class="btn order-btn">Order
+                Now!</a>
+            <!-- Hamburger -->
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+        </div>
+    </header>
+    <main class="main-wrap">
+        <div class="container">
+            <div class="reviews-grid">
+                <!-- Left Column: Review Box -->
+                <div class="box-shadow">
+
+                    <div class="reviews-tabs">
+                        <div class="tab-item active" data-tab="sulphur">Sulphur</div>
+                        <div class="tab-item" data-tab="lake-charles">Lake Charles</div>
+                        <div class="tab-item" data-tab="moss-bluff">Moss Bluff</div>
+                    </div>
+
+                    <div class="reviews-content-wrapper">
+
+                        {% for slug, data in location_data.items() %}
+                        <div class="tab-content {{ 'active' if slug == 'sulphur' else '' }}" id="{{ slug }}">
+
+                            {% if data.place %}
+                            <div class="location-header">
+                                <img src="{{ data.place.photo or 'inc/assets/img/Maplewood-Burgers-Logo-Stacked.svg' }}"
+                                    class="location-logo" alt="Location Logo"
+                                    onerror="this.src='inc/assets/img/Maplewood-Burgers-Logo-Stacked.svg';">
+                                <div class="location-info">
+                                    <h3>{{ data.place.name }}</h3>
+                                    <div class="rating-line">
+                                        <span class="score">{{ "%.1f"|format(data.place.rating) }}</span>
+                                        <span class="stars">
+                                            {% set stars = data.place.rating|stars %}
+                                            {% for i in range(stars.full) %}<i class="fas fa-star"></i>{% endfor %}
+                                            {% if stars.half %}<i class="fas fa-star-half-alt"></i>{% endif %}
+                                            {% for i in range(stars.empty) %}<i class="far fa-star"></i>{% endfor %}
+                                        </span>
+                                    </div>
+                                    <p>Based on {{ data.place.review_count }} reviews</p>
+                                    <p class="google-powered">powered by <img
+                                            src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg"
+                                            style="height: 18px;" alt="Google"></p>
+                                    <a href="{{ data.place.url }}#reviews" target="_blank" class="review-btn-google">
+                                        review us on <img
+                                            src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg"
+                                            alt="G">
+                                    </a>
+                                </div>
+                            </div>
+                            {% endif %}
+
+                            <div class="slider-container">
+                                {% if data.reviews %}
+                                <button class="slider-btn prev" onclick="moveSlide('{{ slug }}', -1)"><i
+                                        class="fas fa-chevron-left"></i></button>
+                                <div class="slider-track" id="track-{{ slug }}">
+                                    {% for review in data.reviews %}
+                                    <div class="slide {{ 'active' if loop.index0 == 0 else '' }}"
+                                        data-index="{{ loop.index0 }}">
+                                        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg"
+                                            class="slide-google-icon" alt="Google">
+                                        <div class="slide-header">
+                                            <img src="{{ review.profile_photo_url or 'https://ui-avatars.com/api/?name=' + review.author_name }}"
+                                                alt="{{ review.author_name }}"
+                                                onerror="this.src='https://ui-avatars.com/api/?name=' + encodeURIComponent(this.alt) + '&background=random';">
+                                            <div class="slide-author">
+                                                <h4>{{ review.author_name }}</h4>
+                                                <span>{{ review.time|timeago }}</span>
+                                            </div>
+                                        </div>
+                                        <div class="slide-stars">
+                                            {% set r_stars = review.rating|stars %}
+                                            {% for i in range(r_stars.full) %}<i class="fas fa-star"></i>{% endfor %}
+                                            {% for i in range(r_stars.empty) %}<i class="far fa-star"></i>{% endfor %}
+                                        </div>
+                                        <div class="slide-text">
+                                            {{ review.text|nl2br }}
+                                        </div>
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                                <button class="slider-btn next" onclick="moveSlide('{{ slug }}', 1)"><i
+                                        class="fas fa-chevron-right"></i></button>
+                                {% else %}
+                                <div class="slider-track">
+                                    <div class="slide active">
+                                        <div class="slide-text" style="text-align: center; color: #999;">
+                                            No reviews found for this location yet.
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endif %}
+                            </div>
+                        </div>
+                        {% endfor %}
+
+                        <!-- App Badges -->
+                        <div class="reviews-app-badges" style="padding: 20px; border-top: 1px solid #eee;">
+                            <a href="https://apps.apple.com/us/app/maplewood-burgers/id1480020066" target="_blank"><img src="inc/assets/img/download-on-the-app-store.svg" alt="App Store"></a>
+                            <a href="https://play.google.com/store/apps/details?id=maplewoodburgers.appfront.ai&pcampaignid=web_share" target="_blank"><img src="inc/assets/img/google-play-badge.svg" alt="Google Play"></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column: Registration Form -->
+                <div class="box-form">
+                    <h2 class="form-main-title">JOIN OUR LOYALTY PROGRAM AND ENJOY!</h2>
+                    <div class="form-wrapper w-form">
+                        <form id="beengo-email-form" class="form">
+                            <div class="text-field w-embed">
+                                <label class="field-label">Fullname</label>
+                                <input class="w-input" name="fullname" placeholder="Fullname" required type="text">
+                            </div>
+                            <div class="text-field w-embed">
+                                <label class="field-label">Phone Number</label>
+                                <input class="w-input" name="phonenumber" placeholder="10 digits, no symbols"
+                                    maxlength="12" required type="tel">
+                            </div>
+                            <div class="text-field w-embed">
+                                <label class="field-label">E-mail</label>
+                                <input class="text-field w-input" name="email" placeholder="example@example.com"
+                                    required type="email">
+                            </div>
+                            <div class="text-field w-embed">
+                                <label class="field-label">Birthdate (optional)</label>
+                                <input class="w-input" name="birthdate" type="date">
+                            </div>
+                            <div class="checkbox-field w-embed">
+                                <input type="checkbox" class="btn-check" id="PrivateSwitchBase" autocomplete="off"
+                                    required>
+                                <small for="PrivateSwitchBase">
+                                    By checking this checkbox you confirm you have read and agree to the Terms of
+                                    Service and Privacy Policy, and consent to receive marketing messages from
+                                    Maplewood
+                                    Burgers. Terms and rates may apply. Message frequencies may vary. Text STOP to
+                                    opt
+                                    out or HELP for support.</small>
+                            </div>
+
+                            <input name="policyId" type="hidden" value="69425856a39d95078839b60d">
+                            <input name="businessCode" type="hidden" value="60b37b80e321ce0df008caa1">
+                            <input name="group" type="hidden" value="Landingnewcustomers">
+
+                            <input type="submit" value="REGISTER FOR GIFT"
+                                class="submit-button w-button btn order-btn full-width">
+                        </form>
+                        <div class="w-form-done" style="display:none;">
+                            <div>Thank you! Your submission has been received!</div>
+                        </div>
+                        <div class="w-form-fail" style="display:none;">
+                            <div>Oops! Something went wrong while submitting the form</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="footer">
+        <div class="footer-container">
+            <!-- Logo -->
+            <div class="footer-logo">
+                <a href="/"><img src="inc/assets/img/Maplewood-Burgers-Logo-Stacked.svg" alt="Maplewood Burgers"></a>
+            </div>
+            <!-- App Buttons -->
+            <div class="app-buttons">
+        <a href="https://play.google.com/store/apps/details?id=maplewoodburgers.appfront.ai&pcampaignid=web_share" target="_blank">
+          <img src="inc/assets/img/google-play-badge.svg" alt="Google Play">
+        </a>
+        <a href="https://apps.apple.com/us/app/maplewood-burgers/id1480020066" target="_blank">
+          <img src="inc/assets/img/download-on-the-app-store.svg" alt="App Store">
+        </a>
+      </div>
+            <!-- Social Icons -->
+            <div class="social-icons">
+                <a href="https://www.facebook.com/MaplewoodBurgers"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/maplewoodburgers/"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.youtube.com/channel/UCX0j7Y_2iZT9KyqsT9agIJQ/featured"><i
+                        class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+
+
+        <!-- Wave Divider -->
+        <div class="footer-wave">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 283.5 27.8" preserveAspectRatio="none">
+                <path class="elementor-shape-fill"
+                    d="M283.5,9.7c0,0-7.3,4.3-14,4.6c-6.8,0.3-12.6,0-20.9-1.5c-11.3-2-33.1-10.1-44.7-5.7	s-12.1,4.6-18,7.4c-6.6,3.2-20,9.6-36.6,9.3C131.6,23.5,99.5,7.2,86.3,8c-1.4,0.1-6.6,0.8-10.5,2c-3.8,1.2-9.4,3.8-17,4.7	c-3.2,0.4-8.3,1.1-14.2,0.9c-1.5-0.1-6.3-0.4-12-1.6c-5.7-1.2-11-3.1-15.8-3.7C6.5,9.2,0,10.8,0,10.8V0h283.5V9.7z M260.8,11.3	c-0.7-1-2-0.4-4.3-0.4c-2.3,0-6.1-1.2-5.8-1.1c0.3,0.1,3.1,1.5,6,1.9C259.7,12.2,261.4,12.3,260.8,11.3z M242.4,8.6	c0,0-2.4-0.2-5.6-0.9c-3.2-0.8-10.3-2.8-15.1-3.5c-8.2-1.1-15.8,0-15.1,0.1c0.8,0.1,9.6-0.6,17.6,1.1c3.3,0.7,9.3,2.2,12.4,2.7	C239.9,8.7,242.4,8.6,242.4,8.6z M185.2,8.5c1.7-0.7-13.3,4.7-18.5,6.1c-2.1,0.6-6.2,1.6-10,2c-3.9,0.4-8.9,0.4-8.8,0.5	c0,0.2,5.8,0.8,11.2,0c5.4-0.8,5.2-1.1,7.6-1.6C170.5,14.7,183.5,9.2,185.2,8.5z M199.1,6.9c0.2,0-0.8-0.4-4.8,1.1	c-4,1.5-6.7,3.5-6.9,3.7c-0.2,0.1,3.5-1.8,6.6-3C197,7.5,199,6.9,199.1,6.9z M283,6c-0.1,0.1-1.9,1.1-4.8,2.5s-6.9,2.8-6.7,2.7	c0.2,0,3.5-0.6,7.4-2.5C282.8,6.8,283.1,5.9,283,6z M31.3,11.6c0.1-0.2-1.9-0.2-4.5-1.2s-5.4-1.6-7.8-2C15,7.6,7.3,8.5,7.7,8.6	C8,8.7,15.9,8.3,20.2,9.3c2.2,0.5,2.4,0.5,5.7,1.6S31.2,11.9,31.3,11.6z M73,9.2c0.4-0.1,3.5-1.6,8.4-2.6c4.9-1.1,8.9-0.5,8.9-0.8	c0-0.3-1-0.9-6.2-0.3S72.6,9.3,73,9.2z M71.6,6.7C71.8,6.8,75,5.4,77.3,5c2.3-0.3,1.9-0.5,1.9-0.6c0-0.1-1.1-0.2-2.7,0.2	C74.8,5.1,71.4,6.6,71.6,6.7z M93.6,4.4c0.1,0.2,3.5,0.8,5.6,1.8c2.1,1,1.8,0.6,1.9,0.5c0.1-0.1-0.8-0.8-2.4-1.3	C97.1,4.8,93.5,4.2,93.6,4.4z M65.4,11.1c-0.1,0.3,0.3,0.5,1.9-0.2s2.6-1.3,2.2-1.2s-0.9,0.4-2.5,0.8C65.3,10.9,65.5,10.8,65.4,11.1	z M34.5,12.4c-0.2,0,2.1,0.8,3.3,0.9c1.2,0.1,2,0.1,2-0.2c0-0.3-0.1-0.5-1.6-0.4C36.6,12.8,34.7,12.4,34.5,12.4z M152.2,21.1	c-0.1,0.1-2.4-0.3-7.5-0.3c-5,0-13.6-2.4-17.2-3.5c-3.6-1.1,10,3.9,16.5,4.1C150.5,21.6,152.3,21,152.2,21.1z">
+                </path>
+                <path class="elementor-shape-fill"
+                    d="M269.6,18c-0.1-0.1-4.6,0.3-7.2,0c-7.3-0.7-17-3.2-16.6-2.9c0.4,0.3,13.7,3.1,17,3.3	C267.7,18.8,269.7,18,269.6,18z">
+                </path>
+                <path class="elementor-shape-fill"
+                    d="M227.4,9.8c-0.2-0.1-4.5-1-9.5-1.2c-5-0.2-12.7,0.6-12.3,0.5c0.3-0.1,5.9-1.8,13.3-1.2	S227.6,9.9,227.4,9.8z">
+                </path>
+                <path class="elementor-shape-fill"
+                    d="M204.5,13.4c-0.1-0.1,2-1,3.2-1.1c1.2-0.1,2,0,2,0.3c0,0.3-0.1,0.5-1.6,0.4	C206.4,12.9,204.6,13.5,204.5,13.4z">
+                </path>
+                <path class="elementor-shape-fill"
+                    d="M201,10.6c0-0.1-4.4,1.2-6.3,2.2c-1.9,0.9-6.2,3.1-6.1,3.1c0.1,0.1,4.2-1.6,6.3-2.6	S201,10.7,201,10.6z">
+                </path>
+                <path class="elementor-shape-fill"
+                    d="M154.5,26.7c-0.1-0.1-4.6,0.3-7.2,0c-7.3-0.7-17-3.2-16.6-2.9c0.4,0.3,13.7,3.1,17,3.3	C152.6,27.5,154.6,26.8,154.5,26.7z">
+                </path>
+                <path class="elementor-shape-fill"
+                    d="M41.9,19.3c0,0,1.2-0.3,2.9-0.1c1.7,0.2,5.8,0.9,8.2,0.7c4.2-0.4,7.4-2.7,7-2.6	c-0.4,0-4.3,2.2-8.6,1.9c-1.8-0.1-5.1-0.5-6.7-0.4S41.9,19.3,41.9,19.3z">
+                </path>
+                <path class="elementor-shape-fill"
+                    d="M75.5,12.6c0.2,0.1,2-0.8,4.3-1.1c2.3-0.2,2.1-0.3,2.1-0.5c0-0.1-1.8-0.4-3.4,0	C76.9,11.5,75.3,12.5,75.5,12.6z">
+                </path>
+                <path class="elementor-shape-fill"
+                    d="M15.6,13.2c0-0.1,4.3,0,6.7,0.5c2.4,0.5,5,1.9,5,2c0,0.1-2.7-0.8-5.1-1.4	C19.9,13.7,15.7,13.3,15.6,13.2z">
+                </path>
+            </svg>
+        </div>
+
+
+        <!-- Bottom Footer -->
+        <div class="footer-bottom">
+
+            <p>
+                © 2021 Maplewood Burgers |
+                <a href="/privacy-policy/">Privacy Policy</a>
+            </p>
+
+            <div class="footer-icon">
+                <img src="inc/assets/img/webrocket-web-design-digital-marketing-white-logo.svg" alt="">
+            </div>
+
+        </div>
+
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="inc/assets/js/app.js"></script>
+    <script src='https://www.jotform.com/website-widgets/embed/019cc2c6f8e07cb08cd9d5bbac75d76742ef'></script>
+    <script
+        src="https://www.google.com/recaptcha/enterprise.js?render=6Ld89VYsAAAAAP474pCxXq_XFwvjZTq5WJfD7JkM"></script>
+
+    <script>
+        jQuery(function ($) {
+            $('#beengo-email-form').on('submit', function (e) {
+                e.preventDefault();
+                e.stopPropagation();
+
+                var $form = $(this);
+                var wrapper = $form.closest('.w-form');
+                var done = wrapper.find('.w-form-done');
+                var fail = wrapper.find('.w-form-fail');
+
+                done.hide();
+                fail.hide();
+
+                // Prevent double submit
+                if ($form.data('submitting')) return;
+                $form.data('submitting', true);
+
+                grecaptcha.enterprise.ready(async function () {
+                    try {
+                        const token = await grecaptcha.enterprise.execute(
+                            '6Ld89VYsAAAAAP474pCxXq_XFwvjZTq5WJfD7JkM',
+                            { action: 'LOGIN' }
+                        );
+
+                        $form.append('<input type="hidden" name="recaptchaToken" value="' + token + '">');
+                        // Function to save data to local database
+                        function saveLocally() {
+                            $.ajax({
+                                type: 'POST',
+                                url: '/loyalty-signup',
+                                data: $form.serialize(),
+                                success: function (localRes) {
+                                    console.log("Local backup saved:", localRes);
+                                },
+                                error: function (err) {
+                                    console.error("Local backup failed:", err);
+                                }
+                            });
+                        }
+
+                        $.ajax({
+                            type: 'POST',
+                            url: 'https://beengo.me/beengo/groupSignup/signUpForCouponExternalResourceWithoutValidation',
+                            dataType: 'json',
+                            data: $form.serialize(),
+                            success: function (response) {
+                                // Save locally regardless of external API business logic result
+                                saveLocally();
+
+                                if (response.errCode) {
+                                    if (response.errCode == 2) {
+                                        fail.find('div').text("Sorry, you can't sign up twice");
+                                    }
+                                    fail.show();
+                                } else {
+                                    done.show();
+                                    setTimeout(function () {
+                                        done.fadeOut(function () {
+                                            $(this).remove();
+                                        });
+                                    }, 4000);
+                                    $form.trigger('reset');
+                                }
+                            },
+                            error: function () {
+                                // Save locally even if the external API call fails (network error, etc.)
+                                saveLocally();
+                                fail.show();
+                            },
+                            complete: function () {
+                                $form.data('submitting', false);
+                            }
+                        });
+
+                    } catch (err) {
+                        console.error('reCAPTCHA error:', err);
+                        fail.show();
+                        $form.data('submitting', false);
+                    }
+                });
+            });
+        });
+    </script>
+
+    
+
+    <script>
+        // Tab Switching Logic
+        $(document).ready(function () {
+            $('.tab-item').on('click', function () {
+                var tabId = $(this).data('tab');
+
+                $('.tab-item').removeClass('active');
+                $(this).addClass('active');
+
+                $('.tab-content').removeClass('active');
+                $('#' + tabId).addClass('active');
+            });
+        });
+
+        // Slider Logic
+        function moveSlide(slug, direction) {
+            const track = document.getElementById('track-' + slug);
+            if (!track) return;
+
+            const slides = track.querySelectorAll('.slide');
+            if (slides.length <= 1) return;
+
+            let activeIndex = -1;
+            slides.forEach((slide, index) => {
+                if (slide.classList.contains('active')) {
+                    activeIndex = index;
+                }
+            });
+
+            if (activeIndex > -1) {
+                slides[activeIndex].classList.remove('active');
+                let newIndex = activeIndex + direction;
+
+                // Wrap around
+                if (newIndex < 0) newIndex = slides.length - 1;
+                if (newIndex >= slides.length) newIndex = 0;
+
+                slides[newIndex].classList.add('active');
+            }
+        }
+    </script>
+
+    <!-- LeadConnector Chat Widget -->
+    {% if settings.chat_widget_key %}
+    <script>
+    window.addEventListener("load", function () {
+        var lc_location_id = "{{ settings.chat_widget_key }}";
+        var settings = {
+            "location-id": lc_location_id,
+            "style": "--chat-widget-primary-color:#EF8B22; --chat-widget-active-color:#EF8B22; --chat-widget-bubble-color:#EF8B22",
+            "prompt-msg": "Hi there, have a question? Text us here.",
+            "heading": "Hi There! Have a question?",
+            "sub-heading": "Please enter your question or message below and we will get right back to you.",
+            "success-msg": "We'll be with you shortly!!",
+            "thank-you-msg": "Thank You!",
+            "legal-msg": "By submitting you agree to receive SMS or e-mails for the provided channel. Rates may be applied.",
+            "show-prompt": "true",
+            "auto-country-code": "true",
+            "enable-revisit-message": "true",
+            "revisit-prompt-msg": "Welcome back, how can we help you today?",
+            "use-email-field": "false"
+        };
+
+        var textWidget = document.createElement("chat-widget");
+        Object.keys(settings).forEach(function(key) {
+            textWidget.setAttribute(key, settings[key]);
+        });
+        document.body.appendChild(textWidget);
+
+        var moduleScript = document.createElement("script");
+        moduleScript.src = "https://widgets.leadconnectorhq.com/loader.js";
+        moduleScript.setAttribute("data-cdn-url", "https://widgets.leadconnectorhq.com");
+        document.body.appendChild(moduleScript);
+    });
+    </script>
+    {% endif %}
+</body>
+
+</html>

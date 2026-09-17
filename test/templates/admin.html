@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Applications | Admin Dashboard</title>
+    <!-- Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Oswald:wght@500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="/static/css/admin-style.css">
+</head>
+
+<body>
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-logo">
+            <img src="/static/img/Maplewood-Burgers-Logo-Horiz.svg" alt="Maplewood Burgers">
+        </div>
+        <ul class="sidebar-nav">
+            <li>
+                <a href="/admin" class="active">
+                    <i class="fas fa-file-invoice"></i>
+                    <span>Applications</span>
+                </a>
+            </li>
+            <li>
+                <a href="/admin/loyalty">
+                    <i class="fas fa-users"></i>
+                    <span>Loyalty Program</span>
+                </a>
+            </li>
+            <li>
+                <a href="/admin/settings">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </a>
+            </li>
+<li>
+                <a href="/admin/sync-menu" onclick="return confirm('Note: This will refresh all menu items and categories from the scrap data. Proceed?')">
+                    <i class="fas fa-sync-alt"></i>
+                    <span>Sync Menu Items</span>
+                </a>
+            </li>
+            <li style="margin-top: 20px;">
+                <a href="/" target="_blank">
+                    <i class="fas fa-external-link-alt"></i>
+                    <span>View Website</span>
+                </a>
+            </li>
+        </ul>
+        <div class="sidebar-footer">
+            <a href="/logout" class="logout-btn">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>Logout</span>
+            </a>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Top Bar -->
+        <div class="top-bar">
+            <div class="welcome-text">
+                <h2>Admin Dashboard</h2>
+                <p>Hello, {{ session.username }}. You have <strong>{{ total_apps }}</strong> applications and <strong>{{
+                        total_loyalty }}</strong> loyalty signups.</p>
+            </div>
+            <div class="top-actions">
+                <a href="/" target="_blank" class="btn-outline">Open Live Site</a>
+            </div>
+        </div>
+
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        {% for message in messages %}
+        <div class="flash-message">{{ message }}</div>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+
+        <!-- Applications Tab -->
+        <div class="card">
+            <div class="card-title">Latest Submissions</div>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Applicant</th>
+                            <th>Contact Info</th>
+                            <th>Locations</th>
+                            <th>Positions</th>
+                            <th>Resume</th>
+                            <th>Submitted On</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for app in applications %}
+                        <tr>
+                            <td>
+                                <strong style="display: block; color: var(--dark);">{{ app.first_name }} {{
+                                    app.last_name }}</strong>
+                                <a href="mailto:{{ app.email }}"
+                                    style="font-size: 12px; color: var(--text-muted); text-decoration: none;">{{
+                                    app.email }}</a>
+                            </td>
+                            <td>{{ app.contact_number }}</td>
+                            <td>
+                                {% if app.location %}
+                                {% for loc in app.location.split(', ') %}
+                                <span class="badge badge-loc">{{ loc }}</span>
+                                {% endfor %}
+                                {% else %}---{% endif %}
+                            </td>
+                            <td>
+                                {% if app.position %}
+                                {% for pos in app.position.split(', ') %}
+                                <span class="badge badge-pos">{{ pos }}</span>
+                                {% endfor %}
+                                {% else %}---{% endif %}
+                            </td>
+                            <td>
+                                {% if app.resume_path %}
+                                <a href="/admin/download/{{ app.resume_path }}" class="btn-save"
+                                    style="padding: 6px 12px; font-size: 11px; text-decoration: none;" target="_blank">
+                                    <i class="fas fa-download"></i> Open
+                                </a>
+                                {% else %}
+                                <span style="color:#ccc; font-size: 12px;">No attachment</span>
+                                {% endif %}
+                            </td>
+                            <td style="font-size: 12px; color: var(--text-muted);">
+                                {{ app.submitted_at.strftime('%b %d, %Y') }}<br>
+                                <span style="font-size:11px; opacity:0.7">{{ app.submitted_at.strftime('%I:%M %p')
+                                    }}</span>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                        {% if not applications %}
+                        <tr>
+                            <td colspan="6" style="text-align: center; padding: 60px 0; color: #999;">
+                                No applications found.
+                            </td>
+                        </tr>
+                        {% endif %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <!-- LeadConnector Chat Widget -->
+    {% if settings.chat_widget_key %}
+    <script>
+    window.addEventListener("load", function () {
+        var lc_location_id = "{{ settings.chat_widget_key }}";
+        var settings = {
+            "location-id": lc_location_id,
+            "style": "--chat-widget-primary-color:#EF8B22; --chat-widget-active-color:#EF8B22; --chat-widget-bubble-color:#EF8B22",
+            "prompt-msg": "Hi there, have a question? Text us here.",
+            "heading": "Hi There! Have a question?",
+            "sub-heading": "Please enter your question or message below and we will get right back to you.",
+            "success-msg": "We'll be with you shortly!!",
+            "thank-you-msg": "Thank You!",
+            "legal-msg": "By submitting you agree to receive SMS or e-mails for the provided channel. Rates may be applied.",
+            "show-prompt": "true",
+            "auto-country-code": "true",
+            "enable-revisit-message": "true",
+            "revisit-prompt-msg": "Welcome back, how can we help you today?",
+            "use-email-field": "false"
+        };
+
+        var textWidget = document.createElement("chat-widget");
+        Object.keys(settings).forEach(function(key) {
+            textWidget.setAttribute(key, settings[key]);
+        });
+        document.body.appendChild(textWidget);
+
+        var moduleScript = document.createElement("script");
+        moduleScript.src = "https://widgets.leadconnectorhq.com/loader.js";
+        moduleScript.setAttribute("data-cdn-url", "https://widgets.leadconnectorhq.com");
+        document.body.appendChild(moduleScript);
+    });
+    </script>
+    {% endif %}
+</body>
+
+</html>

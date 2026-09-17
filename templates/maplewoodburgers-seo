@@ -1,0 +1,915 @@
+Home Page
+==============
+<!-- SEO Meta Tags -->
+<title>Maplewood Burgers #1 Stuffed Burgers in Southwest Louisiana</title>
+<meta name="description"
+  content="3 Locations to serve you the best burger in SWLA - Lake Charles, Sulphur & Moss Bluff. Let Maplewood Burgers stuff you up! Catering & Party Trays available." />
+<meta name="robots" content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large" />
+<link rel="canonical" href="https://www.maplewoodburgers.com/" />
+
+<!-- Open Graph (Facebook) -->
+<meta property="og:locale" content="en_US" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Maplewood Burgers #1 Stuffed Burgers in Southwest Louisiana" />
+<meta property="og:description"
+  content="3 Locations to serve you the best burger in SWLA - Lake Charles, Sulphur & Moss Bluff. Let Maplewood Burgers stuff you up! Catering & Party Trays available." />
+<meta property="og:url" content="https://www.maplewoodburgers.com/" />
+<meta property="og:site_name" content="Maplewood Burgers" />
+<meta property="og:updated_time" content="2024-07-16T14:19:57+00:00" />
+<meta property="og:image"
+  content="https://www.maplewoodburgers.com/wp-content/uploads/2021/05/Maplewood-Burgers-1200x630-1.png" />
+<meta property="og:image:secure_url"
+  content="https://www.maplewoodburgers.com/wp-content/uploads/2021/05/Maplewood-Burgers-1200x630-1.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="Maplewood Burgers" />
+<meta property="og:image:type" content="image/png" />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Maplewood Burgers #1 Stuffed Burgers in Southwest Louisiana" />
+<meta name="twitter:description"
+  content="3 Locations to serve you the best burger in SWLA - Lake Charles, Sulphur & Moss Bluff. Let Maplewood Burgers stuff you up! Catering & Party Trays available." />
+<meta name="twitter:image"
+  content="https://www.maplewoodburgers.com/wp-content/uploads/2021/05/Maplewood-Burgers-1200x630-1.png" />
+
+Structured Data
+================
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": ["Restaurant","Organization"],
+      "@id": "https://www.maplewoodburgers.com/#organization",
+      "name": "Maplewood Burgers",
+      "url": "https://www.maplewoodburgers.com",
+      "openingHours": ["Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday 09:00-17:00"],
+      "telephone": "(337) 602-9002"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.maplewoodburgers.com/#website",
+      "url": "https://www.maplewoodburgers.com",
+      "name": "Maplewood Burgers"
+    }
+  ]
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4SVZ77DRSD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+
+  gtag('config', 'G-4SVZ77DRSD');
+</script>
+
+<!-- Facebook Pixel -->
+<script>
+  !function (f, b, e, v, n, t, s) {
+    if (f.fbq) return; n = f.fbq = function () {
+      n.callMethod ?
+      n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+    };
+    if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+    n.queue = []; t = b.createElement(e); t.async = !0;
+    t.src = v; s = b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t, s)
+  }
+    (window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+
+  fbq('init', '1211563076010573');
+  fbq('track', 'PageView');
+</script>
+
+
+====================
+Who We Are
+====================
+<title>About Maplewood Burgers | #1 Stuffed Burgers in Louisiana</title>
+
+<meta name="description"
+  content="Maplewood Burgers serves delicious burgers in Sulphur, Lake Charles, and Moss Bluff, LA. Wanna be stuffed up? Order a Maplewood Burger today: (337) 602-9002" />
+
+<meta name="robots" content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large" />
+
+<link rel="canonical" href="https://www.maplewoodburgers.com/who-we-are/" />
+
+<meta property="og:locale" content="en_US" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="About Maplewood Burgers | #1 Stuffed Burgers in Louisiana" />
+<meta property="og:description"
+  content="Maplewood Burgers serves delicious burgers in Sulphur, Lake Charles, and Moss Bluff, LA. Wanna be stuffed up? Order a Maplewood Burger today: (337) 602-9002" />
+<meta property="og:url" content="https://www.maplewoodburgers.com/who-we-are/" />
+<meta property="og:site_name" content="Maplewood Burgers" />
+<meta property="og:updated_time" content="2021-10-24T01:37:28+00:00" />
+
+<meta property="og:image"
+  content="https://www.maplewoodburgers.com/wp-content/uploads/2021/06/Maplewood-Burger-Team-and-Founder.jpg" />
+<meta property="og:image:secure_url"
+  content="https://www.maplewoodburgers.com/wp-content/uploads/2021/06/Maplewood-Burger-Team-and-Founder.jpg" />
+<meta property="og:image:width" content="1140" />
+<meta property="og:image:height" content="765" />
+<meta property="og:image:alt" content="who we are" />
+<meta property="og:image:type" content="image/jpeg" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="About Maplewood Burgers | #1 Stuffed Burgers in Louisiana" />
+<meta name="twitter:description"
+  content="Maplewood Burgers serves delicious burgers in Sulphur, Lake Charles, and Moss Bluff, LA. Wanna be stuffed up? Order a Maplewood Burger today: (337) 602-9002" />
+<meta name="twitter:image"
+  content="https://www.maplewoodburgers.com/wp-content/uploads/2021/06/Maplewood-Burger-Team-and-Founder.jpg" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": ["Restaurant","Organization"],
+      "name": "Maplewood Burgers",
+      "url": "https://www.maplewoodburgers.com",
+      "openingHours": ["Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday 09:00-17:00"],
+      "telephone": "(337) 602-9002"
+    },
+    {
+      "@type": "WebSite",
+      "url": "https://www.maplewoodburgers.com",
+      "name": "Maplewood Burgers"
+    },
+    {
+      "@type": "AboutPage",
+      "url": "https://www.maplewoodburgers.com/who-we-are/",
+      "name": "About Maplewood Burgers | #1 Stuffed Burgers in Louisiana"
+    }
+  ]
+}
+</script>
+
+
+===============
+Burgers
+===============
+
+<title>#1 Best Burger in Lake Charles | Maplewood Stuffed Burgers</title>
+
+<meta name="description"
+  content="Maplewood Burgers offers a delicious variety of Burgers and Wraps. Order your burger online or visit one of our 3 locations: Lake Charles, Sulphur or Moss Bluff" />
+
+<meta name="robots" content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large" />
+
+<link rel="canonical" href="https://www.maplewoodburgers.com/burgers/" />
+
+<meta property="og:locale" content="en_US" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="#1 Best Burger in Lake Charles | Maplewood Stuffed Burgers" />
+<meta property="og:description"
+  content="Maplewood Burgers offers a delicious variety of Burgers and Wraps. Order your burger online or visit one of our 3 locations: Lake Charles, Sulphur or Moss Bluff" />
+<meta property="og:url" content="https://www.maplewoodburgers.com/burgers/" />
+<meta property="og:site_name" content="Maplewood Burgers" />
+<meta property="og:updated_time" content="2025-04-11T12:43:55+00:00" />
+
+<meta property="og:image" content="https://www.maplewoodburgers.com/wp-content/uploads/hamburger-2.jpg" />
+<meta property="og:image:secure_url" content="https://www.maplewoodburgers.com/wp-content/uploads/hamburger-2.jpg" />
+<meta property="og:image:width" content="800" />
+<meta property="og:image:height" content="800" />
+<meta property="og:image:alt" content="Burgers" />
+<meta property="og:image:type" content="image/jpeg" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="#1 Best Burger in Lake Charles | Maplewood Stuffed Burgers" />
+<meta name="twitter:description"
+  content="Maplewood Burgers offers a delicious variety of Burgers and Wraps. Order your burger online or visit one of our 3 locations: Lake Charles, Sulphur or Moss Bluff" />
+<meta name="twitter:image" content="https://www.maplewoodburgers.com/wp-content/uploads/hamburger-2.jpg" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": ["Restaurant","Organization"],
+      "name": "Maplewood Burgers",
+      "url": "https://www.maplewoodburgers.com",
+      "openingHours": ["Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday 09:00-17:00"],
+      "telephone": "(337) 602-9002"
+    },
+    {
+      "@type": "WebSite",
+      "url": "https://www.maplewoodburgers.com",
+      "name": "Maplewood Burgers"
+    },
+    {
+      "@type": "WebPage",
+      "url": "https://www.maplewoodburgers.com/burgers/",
+      "name": "#1 Best Burger in Lake Charles | Maplewood Stuffed Burgers"
+    }
+  ]
+}
+</script>
+
+
+=============
+Category Menu
+================
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Primary SEO -->
+  <title>Catering Menu - Maplewood Burgers</title>
+  <meta name="description"
+    content="Planning a party, office lunch, or team event? Feed your crowd with bold flavor and Louisiana flair! Maplewood Burgers brings mouth-watering catering.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.maplewoodburgers.com/catering-menu/">
+
+  <!-- Open Graph (Facebook) -->
+  <meta property="og:locale" content="en_US">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Catering Menu - Maplewood Burgers">
+  <meta property="og:description"
+    content="Planning a party, office lunch, or team event? Feed your crowd with bold flavor and Louisiana flair!">
+  <meta property="og:url" content="https://www.maplewoodburgers.com/catering-menu/">
+  <meta property="og:site_name" content="Maplewood Burgers">
+  <meta property="og:image"
+    content="https://www.maplewoodburgers.com/wp-content/uploads/New-Catering-Menu-2025-2-1.png">
+
+  <!-- Twitter SEO -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Catering Menu - Maplewood Burgers">
+  <meta name="twitter:description"
+    content="Planning a party, office lunch, or team event? Feed your crowd with bold flavor and Louisiana flair!">
+  <meta name="twitter:image"
+    content="https://www.maplewoodburgers.com/wp-content/uploads/New-Catering-Menu-2025-2-1.png">
+
+  <!-- Structured Data (Schema) -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Restaurant",
+  "name": "Maplewood Burgers",
+  "url": "https://www.maplewoodburgers.com",
+  "telephone": "(337) 602-9002",
+  "openingHours": "Mo-Su 09:00-17:00"
+}
+</script>
+
+  <!-- Google Analytics (GA4) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-4SVZ77DRSD"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-4SVZ77DRSD');
+  </script>
+
+</head>
+
+
+=====================
+locations
+=====================
+
+<title>Maplewood Burgers Locations</title>
+
+<meta name="description"
+  content="Visit Maplewood Burgers at three convenient locations in Lake Charles, Moss Bluff, and Sulphur, LA. Enjoy fresh burgers, breakfast, wings, shakes & more. Local flavor, fast service." />
+
+<meta name="robots" content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large" />
+
+<link rel="canonical" href="https://www.maplewoodburgers.com/locations/" />
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Maplewood Burgers Locations" />
+<meta property="og:description"
+  content="Visit Maplewood Burgers at three convenient locations in Lake Charles, Moss Bluff, and Sulphur, LA. Enjoy fresh burgers, breakfast, wings, shakes & more. Local flavor, fast service." />
+<meta property="og:url" content="https://www.maplewoodburgers.com/locations/" />
+<meta property="og:site_name" content="Maplewood Burgers" />
+<meta property="og:image"
+  content="https://www.maplewoodburgers.com/wp-content/uploads/2021/05/Maplewood-Burgers-1200x630-1.png" />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Maplewood Burgers Locations" />
+<meta name="twitter:description"
+  content="Visit Maplewood Burgers at three convenient locations in Lake Charles, Moss Bluff, and Sulphur, LA. Enjoy fresh burgers, breakfast, wings, shakes & more. Local flavor, fast service." />
+<meta name="twitter:image"
+  content="https://www.maplewoodburgers.com/wp-content/uploads/2021/05/Maplewood-Burgers-1200x630-1.png" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": ["Restaurant","Organization"],
+      "@id": "https://www.maplewoodburgers.com/#organization",
+      "name": "Maplewood Burgers",
+      "url": "https://www.maplewoodburgers.com",
+      "openingHours": ["Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday 09:00-17:00"],
+      "telephone": "(337) 602-9002"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.maplewoodburgers.com/#website",
+      "url": "https://www.maplewoodburgers.com",
+      "name": "Maplewood Burgers"
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://www.maplewoodburgers.com/locations/#webpage",
+      "url": "https://www.maplewoodburgers.com/locations/",
+      "name": "Maplewood Burgers Locations"
+    },
+    {
+      "@type": "Article",
+      "headline": "Maplewood Burgers Locations",
+      "description": "Visit Maplewood Burgers at three convenient locations in Lake Charles, Moss Bluff, and Sulphur, LA.",
+      "mainEntityOfPage": {
+        "@id": "https://www.maplewoodburgers.com/locations/#webpage"
+      }
+    }
+  ]
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4SVZ77DRSD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+
+  gtag('js', new Date());
+  gtag('config', 'G-4SVZ77DRSD');
+</script>
+
+========================
+lake-charles
+========================
+<title>Best Burger in Lake Charles | #1 Maplewood Burgers</title>
+
+<meta name="description"
+  content="Looking for the Best Burger in Lake Charles LA? Maplewood Burgers is home of the Famous 'Stuffed Burger' and Cajun-Kick Sauce. Order Now: (337) 602-9002" />
+
+<meta name="robots" content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large" />
+
+<link rel="canonical" href="https://www.maplewoodburgers.com/locations/lake-charles/" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Best Burger in Lake Charles | #1 Maplewood Burgers" />
+<meta property="og:description"
+  content="Looking for the Best Burger in Lake Charles LA? Maplewood Burgers is home of the Famous 'Stuffed Burger' and Cajun-Kick Sauce. Order Now: (337) 602-9002" />
+<meta property="og:url" content="https://www.maplewoodburgers.com/locations/lake-charles/" />
+<meta property="og:site_name" content="Maplewood Burgers" />
+<meta property="og:image" content="https://www.maplewoodburgers.com/wp-content/uploads/bbq-brisket.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Best Burger in Lake Charles | #1 Maplewood Burgers" />
+<meta name="twitter:description"
+  content="Looking for the Best Burger in Lake Charles LA? Maplewood Burgers is home of the Famous 'Stuffed Burger' and Cajun-Kick Sauce. Order Now: (337) 602-9002" />
+<meta name="twitter:image" content="https://www.maplewoodburgers.com/wp-content/uploads/bbq-brisket.jpg" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Restaurant",
+  "name": "Maplewood Burgers",
+  "description": "Best Burger in Lake Charles with famous stuffed burgers and Cajun flavors",
+  "telephone": "(337) 602-9002",
+  "priceRange": "$12 to $45",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "4453 Nelson Rd",
+    "addressLocality": "Lake Charles",
+    "addressRegion": "LA",
+    "postalCode": "70605",
+    "addressCountry": "US"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "30.17647190",
+    "longitude": "-93.24840370"
+  },
+  "servesCuisine": ["Hamburgers", "Breakfast"],
+  "image": "https://www.maplewoodburgers.com/wp-content/uploads/bbq-brisket.jpg"
+}
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4SVZ77DRSD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+
+  gtag('js', new Date());
+  gtag('config', 'G-4SVZ77DRSD');
+</script>
+
+
+=====================
+breakfast
+=====================
+<title>#1 Breakfast Lake Charles | Satisfy Your Hunger Order Today</title>
+
+<meta name="description"
+  content="Maplewood Burgers has the Best Breakfast Lake Charles has to offer! Sausage, Egg & Cheese Burrito, Egg & Cheese Chorizo , Hangover Burger - Call or Order Online" />
+
+<meta name="robots" content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large" />
+
+<link rel="canonical" href="https://www.maplewoodburgers.com/locations/lake-charles/breakfast-lake-charles/" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="#1 Breakfast Lake Charles | Satisfy Your Hunger Order Today" />
+<meta property="og:description"
+  content="Maplewood Burgers has the Best Breakfast Lake Charles has to offer! Sausage, Egg & Cheese Burrito, Egg & Cheese Chorizo , Hangover Burger - Call or Order Online" />
+<meta property="og:url" content="https://www.maplewoodburgers.com/locations/lake-charles/breakfast-lake-charles/" />
+<meta property="og:site_name" content="Maplewood Burgers" />
+
+<meta property="og:image"
+  content="https://www.maplewoodburgers.com/wp-content/uploads/2021/10/philly-egg-and-cheese.webp" />
+<meta property="og:image:secure_url"
+  content="https://www.maplewoodburgers.com/wp-content/uploads/2021/10/philly-egg-and-cheese.webp" />
+<meta property="og:image:width" content="600" />
+<meta property="og:image:height" content="400" />
+<meta property="og:image:alt" content="breakfast lake charles" />
+<meta property="og:image:type" content="image/webp" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="#1 Breakfast Lake Charles | Satisfy Your Hunger Order Today" />
+<meta name="twitter:description"
+  content="Maplewood Burgers has the Best Breakfast Lake Charles has to offer! Sausage, Egg & Cheese Burrito, Egg & Cheese Chorizo , Hangover Burger - Call or Order Online" />
+<meta name="twitter:image"
+  content="https://www.maplewoodburgers.com/wp-content/uploads/2021/10/philly-egg-and-cheese.webp" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Restaurant",
+  "name": "Maplewood Burgers",
+  "url": "https://www.maplewoodburgers.com",
+  "telephone": "(337) 602-9002",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "4453 Nelson Rd",
+    "addressLocality": "Lake Charles",
+    "addressRegion": "LA",
+    "postalCode": "70605",
+    "addressCountry": "US"
+  },
+  "servesCuisine": ["Breakfast", "Burgers"],
+  "priceRange": "$12 to $45"
+}
+</script>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4SVZ77DRSD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+
+  gtag('config', 'G-4SVZ77DRSD');
+</script>
+
+===================
+sulphur
+===================
+<title>Maplewood Burgers Sulphur LA | #1 Best Burger in Sulphur LA</title>
+
+<meta name="description"
+  content="#1 Best Burger in Sulphur LA - Maplewood Burgers is serving up their famous stuffed burgers. Order Online or call (337) 625-5586. Party Trays Available!" />
+
+<meta name="robots" content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large" />
+
+<link rel="canonical" href="https://www.maplewoodburgers.com/locations/sulphur/" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Maplewood Burgers Sulphur LA | #1 Best Burger in Sulphur LA" />
+<meta property="og:description"
+  content="#1 Best Burger in Sulphur LA - Maplewood Burgers is serving up their famous stuffed burgers." />
+<meta property="og:url" content="https://www.maplewoodburgers.com/locations/sulphur/" />
+<meta property="og:site_name" content="Maplewood Burgers" />
+<meta property="og:image"
+  content="https://www.maplewoodburgers.com/wp-content/uploads/2021/05/stuffed-cheese-burger-lake-charles-68.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Maplewood Burgers Sulphur LA | #1 Best Burger in Sulphur LA" />
+<meta name="twitter:description"
+  content="#1 Best Burger in Sulphur LA - Maplewood Burgers is serving up their famous stuffed burgers." />
+<meta name="twitter:image"
+  content="https://www.maplewoodburgers.com/wp-content/uploads/2021/05/stuffed-cheese-burger-lake-charles-68.jpg" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Restaurant",
+  "name": "Maplewood Burgers",
+  "url": "https://www.maplewoodburgers.com",
+  "telephone": "(337) 602-9002",
+  "openingHours": "Mo-Su 09:00-17:00"
+}
+</script>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4SVZ77DRSD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+  gtag('config', 'G-4SVZ77DRSD');
+</script>
+
+
+==================
+moss-bluff
+==================
+
+<!-- SEO Meta Tags -->
+<title>Moss Bluff LA | Maplewood Burgers | #1 Stuffed Burgers</title>
+<meta name="description"
+  content="Maplewood Burgers is serving up our famous stuffed burgers in Moss Bluff, LA. Contact Maplewood Burgers to learn about our catering options. (337) 419-0959" />
+<meta name="robots" content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large" />
+<link rel="canonical" href="https://www.maplewoodburgers.com/locations/moss-bluff/" />
+
+<!-- Open Graph / Facebook -->
+<meta property="og:locale" content="en_US" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Moss Bluff LA | Maplewood Burgers | #1 Stuffed Burgers" />
+<meta property="og:description"
+  content="Maplewood Burgers is serving up our famous stuffed burgers in Moss Bluff, LA. Contact Maplewood Burgers to learn about our catering options. (337) 419-0959" />
+<meta property="og:url" content="https://www.maplewoodburgers.com/locations/moss-bluff/" />
+<meta property="og:site_name" content="Maplewood Burgers" />
+<meta property="og:updated_time" content="2025-10-31T19:49:36+00:00" />
+<meta property="og:image"
+  content="https://www.maplewoodburgers.com/wp-content/uploads/2021/05/maplewood-burgers-stuffed-cheese-burger-71.jpg" />
+<meta property="og:image:secure_url"
+  content="https://www.maplewoodburgers.com/wp-content/uploads/2021/05/maplewood-burgers-stuffed-cheese-burger-71.jpg" />
+<meta property="og:image:width" content="1920" />
+<meta property="og:image:height" content="1037" />
+<meta property="og:image:alt" content="Maplewood Burgers Moss Bluff LA Stuffed Burgers" />
+<meta property="og:image:type" content="image/jpeg" />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Moss Bluff LA | Maplewood Burgers | #1 Stuffed Burgers" />
+<meta name="twitter:description"
+  content="Maplewood Burgers is serving up our famous stuffed burgers in Moss Bluff, LA. Contact Maplewood Burgers to learn about our catering options. (337) 419-0959" />
+<meta name="twitter:image"
+  content="https://www.maplewoodburgers.com/wp-content/uploads/2021/05/maplewood-burgers-stuffed-cheese-burger-71.jpg" />
+<meta name="twitter:label1" content="Time to read" />
+<meta name="twitter:data1" content="Less than a minute" />
+
+<!-- Structured Data (JSON-LD) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": ["Restaurant","Organization"],
+      "@id": "https://www.maplewoodburgers.com/#organization",
+      "name": "Maplewood Burgers",
+      "url": "https://www.maplewoodburgers.com",
+      "openingHours": ["Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday 09:00-17:00"],
+      "telephone": "(337) 602-9002"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.maplewoodburgers.com/#website",
+      "url": "https://www.maplewoodburgers.com",
+      "name": "Maplewood Burgers",
+      "publisher": { "@id": "https://www.maplewoodburgers.com/#organization" },
+      "inLanguage": "en-US"
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://www.maplewoodburgers.com/locations/moss-bluff/#webpage",
+      "url": "https://www.maplewoodburgers.com/locations/moss-bluff/",
+      "name": "Moss Bluff LA | Maplewood Burgers | #1 Stuffed Burgers",
+      "datePublished": "2021-05-19T20:37:39+00:00",
+      "dateModified": "2025-10-31T19:49:36+00:00",
+      "isPartOf": { "@id": "https://www.maplewoodburgers.com/#website" },
+      "inLanguage": "en-US"
+    }
+  ]
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4SVZ77DRSD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+  gtag('set', 'linker', { 'domains': ['www.maplewoodburgers.com'] });
+  gtag('config', 'G-4SVZ77DRSD');
+</script>
+
+<!-- Google Analytics Opt-Out -->
+<script>
+  window["ga-disable-G-4SVZ77DRSD"] = true;
+</script>
+
+<!-- Facebook Pixel -->
+<script>
+  !function (f, b, e, v, n, t, s) {
+    if (f.fbq) return; n = f.fbq = function () {
+      n.callMethod ?
+      n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+    };
+    if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+    n.queue = []; t = b.createElement(e); t.async = !0;
+    t.src = v; s = b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t, s)
+  }(window, document, 'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '1211563076010573');
+  fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1211563076010573&ev=PageView&noscript=1" /></noscript>
+
+=====================
+menu
+=====================
+<!-- ===== SEO META TAGS ===== -->
+<title>Menu - Maplewood Burgers</title>
+<meta name="description" content="All Your Favorites. Download & Be Happy!">
+<meta name="robots" content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large">
+<link rel="canonical" href="https://www.maplewoodburgers.com/menu/">
+
+<!-- Open Graph (Facebook / WhatsApp) -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Menu - Maplewood Burgers">
+<meta property="og:description" content="All Your Favorites. Download & Be Happy!">
+<meta property="og:url" content="https://www.maplewoodburgers.com/menu/">
+<meta property="og:site_name" content="Maplewood Burgers">
+<meta property="og:image"
+  content="https://www.maplewoodburgers.com/wp-content/uploads/2021/05/Maplewood-Burgers-1200x630-1.png">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Menu - Maplewood Burgers">
+<meta name="twitter:description" content="All Your Favorites. Download & Be Happy!">
+<meta name="twitter:image"
+  content="https://www.maplewoodburgers.com/wp-content/uploads/2021/05/Maplewood-Burgers-1200x630-1.png">
+
+<!-- ===== STRUCTURED DATA (SEO Schema) ===== -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Restaurant",
+  "name": "Maplewood Burgers",
+  "url": "https://www.maplewoodburgers.com",
+  "telephone": "(337) 602-9002",
+  "openingHours": "Mo-Su 09:00-17:00"
+}
+</script>
+
+<!-- ===== GOOGLE ANALYTICS (GA4) ===== -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4SVZ77DRSD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+
+  gtag('config', 'G-4SVZ77DRSD');
+</script>
+
+==============
+Contact
+==============
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- ===== SEO ===== -->
+<title>Contact | Maplewood Burgers | #1 Stuffed Burgers Lake Charles</title>
+<meta name="description"
+  content="Maplewood Burgers has been providing SWLA with one of a kind stuffed burgers for over 10 years. Contact Us to learn about our stuffed burgers and catering options. (337) 602-9002">
+<meta name="robots" content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large">
+<link rel="canonical" href="https://www.maplewoodburgers.com/contact/">
+
+<!-- ===== OPEN GRAPH ===== -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Contact | Maplewood Burgers | #1 Stuffed Burgers Lake Charles">
+<meta property="og:description"
+  content="Maplewood Burgers has been providing SWLA with one of a kind stuffed burgers for over 10 years. Contact Us to learn about our stuffed burgers and catering options. (337) 602-9002">
+<meta property="og:url" content="https://www.maplewoodburgers.com/contact/">
+<meta property="og:site_name" content="Maplewood Burgers">
+<meta property="og:image"
+  content="https://www.maplewoodburgers.com/wp-content/uploads/2021/05/Maplewood-Burgers-1200x630-1.png">
+
+<!-- ===== TWITTER ===== -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Contact | Maplewood Burgers | #1 Stuffed Burgers Lake Charles">
+<meta name="twitter:description"
+  content="Maplewood Burgers has been providing SWLA with one of a kind stuffed burgers for over 10 years. Contact Us to learn about our stuffed burgers and catering options. (337) 602-9002">
+<meta name="twitter:image"
+  content="https://www.maplewoodburgers.com/wp-content/uploads/2021/05/Maplewood-Burgers-1200x630-1.png">
+
+<!-- ===== STRUCTURED DATA ===== -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  "name": "Contact | Maplewood Burgers",
+  "url": "https://www.maplewoodburgers.com/contact/",
+  "description": "Contact Maplewood Burgers for stuffed burgers and catering options",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Maplewood Burgers"
+  }
+}
+</script>
+
+<!-- ===== GOOGLE ANALYTICS (GA4) ===== -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4SVZ77DRSD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+
+  gtag("js", new Date());
+  gtag("set", "linker", { "domains": ["www.maplewoodburgers.com"] });
+  gtag("config", "G-4SVZ77DRSD");
+</script>
+
+
+=================
+application
+=================
+
+<!-- ===== SEO ===== -->
+<title>Job Application - Maplewood Burgers</title>
+<meta name="description"
+  content="Join the Maplewood burger family, we’re always looking for happy, smiling faces. Please fill out the information on the form and if you have a résumé attach">
+<meta name="robots" content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large">
+<link rel="canonical" href="https://www.maplewoodburgers.com/application/">
+
+<!-- ===== OPEN GRAPH ===== -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Job Application - Maplewood Burgers">
+<meta property="og:description"
+  content="Join the Maplewood burger family, we’re always looking for happy, smiling faces. Please fill out the information on the form and if you have a résumé attach">
+<meta property="og:url" content="https://www.maplewoodburgers.com/application/">
+<meta property="og:site_name" content="Maplewood Burgers">
+<meta property="og:image"
+  content="https://www.maplewoodburgers.com/wp-content/uploads/2021/05/Maplewood-Burgers-1200x630-1.png">
+
+<!-- ===== TWITTER ===== -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Job Application - Maplewood Burgers">
+<meta name="twitter:description"
+  content="Join the Maplewood burger family, we’re always looking for happy, smiling faces. Please fill out the information on the form and if you have a résumé attach">
+<meta name="twitter:image"
+  content="https://www.maplewoodburgers.com/wp-content/uploads/2021/05/Maplewood-Burgers-1200x630-1.png">
+
+<!-- ===== STRUCTURED DATA ===== -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Job Application - Maplewood Burgers",
+  "url": "https://www.maplewoodburgers.com/application/",
+  "description": "Join the Maplewood burger family, we’re always looking for happy, smiling faces.",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Maplewood Burgers"
+  }
+}
+</script>
+
+<!-- ===== GOOGLE ANALYTICS ===== -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4SVZ77DRSD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+
+  gtag("js", new Date());
+  gtag("set", "linker", { "domains": ["www.maplewoodburgers.com"] });
+  gtag("config", "G-4SVZ77DRSD");
+</script>
+
+===================
+Blogs
+===================
+<!-- ===== SEO ===== -->
+<title>Blogs - Maplewood Burgers</title>
+<meta name="description" content="Maplewood burger's BLOG BLOGS">
+<meta name="robots" content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large">
+<link rel="canonical" href="https://www.maplewoodburgers.com/blogs/">
+
+<!-- ===== OPEN GRAPH ===== -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Blogs - Maplewood Burgers">
+<meta property="og:description" content="Maplewood burger's BLOG BLOGS">
+<meta property="og:url" content="https://www.maplewoodburgers.com/blogs/">
+<meta property="og:site_name" content="Maplewood Burgers">
+<meta property="og:image"
+  content="https://www.maplewoodburgers.com/wp-content/uploads/2021/05/Maplewood-Burgers-1200x630-1.png">
+
+<!-- ===== TWITTER ===== -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Blogs - Maplewood Burgers">
+<meta name="twitter:description" content="Maplewood burger's BLOG BLOGS">
+<meta name="twitter:image"
+  content="https://www.maplewoodburgers.com/wp-content/uploads/2021/05/Maplewood-Burgers-1200x630-1.png">
+
+<!-- ===== STRUCTURED DATA ===== -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Blogs - Maplewood Burgers",
+  "url": "https://www.maplewoodburgers.com/blogs/",
+  "description": "Maplewood burger's BLOG BLOGS",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Maplewood Burgers"
+  }
+}
+</script>
+
+<!-- ===== GOOGLE ANALYTICS ===== -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4SVZ77DRSD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+
+  gtag("js", new Date());
+  gtag("set", "linker", { "domains": ["www.maplewoodburgers.com"] });
+  gtag("config", "G-4SVZ77DRSD");
+</script>
+
+========================
+Single Blog
+========================
+
+<title>Will You Be My BOGO? - Maplewood Burgers</title>
+<meta name="description"
+  content="What’s Valentine’s Day without a little label confusion? Whether it’s love, a situationship, or just good company, we’ve got you covered.">
+<meta name="robots" content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large">
+<link rel="canonical" href="https://www.maplewoodburgers.com/will-you-be-my-bogo/">
+
+<!-- ===== OPEN GRAPH ===== -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Will You Be My BOGO? - Maplewood Burgers">
+<meta property="og:description"
+  content="What’s Valentine’s Day without a little label confusion? Whether it’s love, a situationship, or just good company, we’ve got you covered.">
+<meta property="og:url" content="https://www.maplewoodburgers.com/will-you-be-my-bogo/">
+<meta property="og:site_name" content="Maplewood Burgers">
+<meta property="og:image"
+  content="https://www.maplewoodburgers.com/wp-content/uploads/2021/10/The-Hangover-Burger.webp">
+
+<!-- ===== TWITTER ===== -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Will You Be My BOGO? - Maplewood Burgers">
+<meta name="twitter:description"
+  content="What’s Valentine’s Day without a little label confusion? Whether it’s love, a situationship, or just good company, we’ve got you covered.">
+<meta name="twitter:image"
+  content="https://www.maplewoodburgers.com/wp-content/uploads/2021/10/The-Hangover-Burger.webp">
+
+<!-- ===== GOOGLE ANALYTICS ===== -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4SVZ77DRSD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+
+  gtag("js", new Date());
+  gtag("set", "linker", { "domains": ["www.maplewoodburgers.com"] });
+  gtag("config", "G-4SVZ77DRSD");
+</script>
+
+=================
+Privacy Policy
+=================
+
+<title>Privacy Policy - Maplewood Burgers</title>
+<meta name="description" content="MAPLEWOOD BURGERS PRIVACY POLICY">
+<meta name="robots" content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large">
+<link rel="canonical" href="https://www.maplewoodburgers.com/privacy-policy/">
+
+<!-- ===== OPEN GRAPH ===== -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Privacy Policy - Maplewood Burgers">
+<meta property="og:description" content="MAPLEWOOD BURGERS PRIVACY POLICY">
+<meta property="og:url" content="https://www.maplewoodburgers.com/privacy-policy/">
+<meta property="og:site_name" content="Maplewood Burgers">
+<meta property="og:image"
+  content="https://www.maplewoodburgers.com/wp-content/uploads/2021/05/Maplewood-Burgers-1200x630-1.png">
+
+<!-- ===== TWITTER ===== -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Privacy Policy - Maplewood Burgers">
+<meta name="twitter:description" content="MAPLEWOOD BURGERS PRIVACY POLICY">
+<meta name="twitter:image"
+  content="https://www.maplewoodburgers.com/wp-content/uploads/2021/05/Maplewood-Burgers-1200x630-1.png">
+
+<!-- ===== GOOGLE ANALYTICS ===== -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4SVZ77DRSD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+
+  gtag("js", new Date());
+  gtag("set", "linker", { "domains": ["www.maplewoodburgers.com"] });
+  gtag("config", "G-4SVZ77DRSD");
+</script>
