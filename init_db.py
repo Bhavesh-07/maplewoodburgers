@@ -15,6 +15,7 @@ def init_db():
         return
     # Load .env manually if it exists to retrieve correct database credentials
     env_host = '127.0.0.1'
+    env_port = 3306
     env_user = 'root'
     env_pass = ''
     
@@ -30,6 +31,7 @@ def init_db():
                     key = key.strip()
                     val = val.strip().strip("'").strip('"')
                     if key == 'DB_HOST': env_host = val
+                    elif key == 'DB_PORT': env_port = int(val)
                     elif key == 'DB_USER': env_user = val
                     elif key == 'DB_PASS': env_pass = val
 
@@ -37,6 +39,7 @@ def init_db():
         'user': env_user,
         'password': env_pass,
         'host': env_host,
+        'port': env_port,
     }
 
     try:
