@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Store Locations | Admin Dashboard</title>
+    <!-- Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Oswald:wght@500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/lib/font-awesome/css/all.min.css">
+    <link rel="stylesheet" href="/static/css/admin-style.css">
+    <style>
+        .locations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+        .loc-card {
+            background: var(--white);
+            border-radius: var(--radius);
+            border: 1px solid var(--border-color);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            transition: var(--transition);
+        }
+        .loc-card:hover {
+            box-shadow: 0 8px 25px rgba(0,0,0,0.07);
+            transform: translateY(-2px);
+        }
+        .loc-card-header {
+            padding: 20px;
+            background: #fafafa;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .loc-card-header h3 {
+            margin: 0;
+            font-size: 1.25rem;
+            color: var(--dark);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .loc-slug-badge {
+            font-size: 11px;
+            background: var(--primary-light);
+            color: var(--primary);
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        .loc-card-body {
+            padding: 22px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+        .loc-item {
+            display: flex;
+            gap: 14px;
+            align-items: flex-start;
+        }
+        .loc-item i {
+            color: var(--primary);
+            margin-top: 3px;
+            font-size: 16px;
+            width: 20px;
+            text-align: center;
+        }
+        .loc-item-content {
+            flex: 1;
+        }
+        .loc-item-label {
+            font-size: 11px;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: var(--text-muted);
+            margin-bottom: 4px;
+        }
+        .loc-item-val {
+            font-size: 14px;
+            color: var(--text-dark);
+            line-height: 1.5;
+        }
+        .loc-card-footer {
+            padding: 16px 22px;
+            background: #fafafa;
+            border-top: 1px solid var(--border-color);
+            display: flex;
+            justify-content: flex-end;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-logo">
+            <img src="/static/img/Maplewood-Burgers-Logo-Horiz.svg" alt="Maplewood Burgers">
+        </div>
+        <ul class="sidebar-nav">
+            <li>
+                <a href="/access-panel">
+                    <i class="fas fa-file-invoice"></i>
+                    <span>Applications</span>
+                </a>
+            </li>
+            <li>
+                <a href="/access-panel/loyalty">
+                    <i class="fas fa-users"></i>
+                    <span>Loyalty Program</span>
+                </a>
+            </li>
+            <li>
+                <a href="/access-panel/blogs">
+                    <i class="fas fa-blog"></i>
+                    <span>Blogs</span>
+                </a>
+            </li>
+            <li>
+                <a href="/access-panel/locations" class="active">
+                    <i class="fas fa-map-marked-alt"></i>
+                    <span>Locations</span>
+                </a>
+            </li>
+            <li>
+                <a href="/access-panel/settings">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </a>
+            </li>
+            <li>
+                <a href="/access-panel/sync-menu" class="sync-menu-link">
+                    <i class="fas fa-sync-alt"></i>
+                    <span>Sync Menu Items</span>
+                </a>
+            </li>
+            <li style="margin-top: 20px;">
+                <a href="/" target="_blank">
+                    <i class="fas fa-external-link-alt"></i>
+                    <span>View Website</span>
+                </a>
+            </li>
+        </ul>
+        <div class="sidebar-footer">
+            <a href="/logout" class="logout-btn">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>Logout</span>
+            </a>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Top Bar -->
+        <div class="top-bar">
+            <div class="welcome-text">
+                <h2>Store Locations</h2>
+                <p>Manage store hours, contact phone numbers, and physical addresses across all website pages.</p>
+            </div>
+            <div class="top-actions">
+                <a href="/" target="_blank" class="btn-outline">Open Live Site</a>
+            </div>
+        </div>
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+        {% for category, message in messages %}
+        <div class="flash-message flash-{{ category }}">{{ message }}</div>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+
+        <div class="locations-grid">
+            {% for loc in locations %}
+            <div class="loc-card">
+                <div class="loc-card-header">
+                    <h3><i class="fas fa-store-alt" style="color: var(--primary);"></i> {{ loc.name }}</h3>
+                    <span class="loc-slug-badge">{{ loc.slug }}</span>
+                </div>
+                <div class="loc-card-body">
+                    <div class="loc-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <div class="loc-item-content">
+                            <div class="loc-item-label">Phone Number</div>
+                            <div class="loc-item-val"><strong>{{ loc.phone }}</strong></div>
+                        </div>
+                    </div>
+
+                    <div class="loc-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div class="loc-item-content">
+                            <div class="loc-item-label">Physical Address</div>
+                            <div class="loc-item-val">{{ loc.address_line1 }}{% if loc.address_line2 %}<br>{{ loc.address_line2 }}{% endif %}</div>
+                        </div>
+                    </div>
+
+                    <div class="loc-item">
+                        <i class="fas fa-clock"></i>
+                        <div class="loc-item-content">
+                            <div class="loc-item-label">Operating Hours</div>
+                            <div class="loc-item-val">{{ loc.hours|nl2br }}</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="loc-card-footer">
+                    <a href="/access-panel/locations/edit/{{ loc.id }}" class="btn-primary" style="padding: 9px 18px; border-radius: 20px; font-size: 13px; text-decoration: none; display: inline-flex; align-items: center; gap: 6px;">
+                        <i class="fas fa-edit"></i> Edit Location Details
+                    </a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </main>
+</body>
+
+</html>

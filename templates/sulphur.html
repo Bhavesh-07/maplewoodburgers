@@ -203,23 +203,30 @@
         </div>
     </section>
     <!-- Contact Details Section -->
+        <!-- Contact Details Section (Dynamic) -->
     <section class="contact-lake-charles">
         <div class="contact-grid">
             <!-- Left Info Block -->
             <div class="contact-info-block">
-                <h2 class="contact-heading">CONTACT US - SULPHUR</h2>
+                {% set loc = locations_data.get('sulphur', {}) %}
+                <h2 class="contact-heading">CONTACT US - {{ (loc.name or 'SULPHUR') | upper }}</h2>
                 <ul class="contact-list">
-                    <li><i class="fas fa-phone-alt"></i> 337-625-5586</li>
-                    <li><i class="fas fa-map-marker-alt"></i> <span>4124 Maplewood Dr <br> Sulphur, LA 70663</span></li>
-                    <li><i class="fas fa-clock"></i> Mon-Fri 5:00am - 9pm</li>
-                    <li><i class="fas fa-clock"></i> Saturday 6am - 9pm</li>
-                    <li><i class="fas fa-clock"></i> Sunday 8am - 8pm</li>
+                    <li><i class="fas fa-phone-alt"></i> {{ loc.phone or '337-625-5586' }}</li>
+                    <li><i class="fas fa-map-marker-alt"></i> <span>{{ loc.address_line1 or '4124 Maplewood Dr' }} <br> {{ loc.address_line2 or 'Sulphur, LA 70663' }}</span></li>
+                    {% for h in (loc.hours or 'Mon-Fri 5:00am - 9pm
+Saturday 6am - 9pm
+Sunday 8am - 8pm').split('
+') %}
+                    <li><i class="fas fa-clock"></i> {{ h }}</li>
+                    {% endfor %}
                 </ul>
             </div>
             <!-- Right Map Block -->
             <div class="contact-map-block">
+                {% set m_target = loc.map_query or (loc.address_line1 ~ ', ' ~ loc.address_line2) if loc.address_line1 else '4124 Maplewood Dr, Sulphur, LA 70663' %}
+                {% set m_src = m_target if m_target.startswith('http') else ('https://maps.google.com/maps?q=' ~ m_target | urlencode ~ '&t=m&z=15&output=embed&iwloc=near') %}
                 <iframe
-                    src="https://maps.google.com/maps?q=4124%20Maplewood%20Dr%2C%20Sulphur%2C%20LA%2070663&t=m&z=15&output=embed&iwloc=near"
+                    src="{{ m_src }}"
                     width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
                     referrerpolicy="no-referrer-when-downgrade">
                 </iframe>

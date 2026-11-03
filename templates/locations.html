@@ -144,51 +144,53 @@
 
         <div class="locations-grid-container">
             <!-- Lake Charles -->
+            {% set lc = locations_data.get('lake-charles', {}) %}
+            {% set lc_target = lc.map_query or (lc.address_line1 ~ ', ' ~ lc.address_line2) if lc.address_line1 else '4453 Nelson Rd, Lake Charles, LA 70605' %}
+            {% set lc_src = lc_target if lc_target.startswith('http') else ('https://maps.google.com/maps?q=' ~ lc_target | urlencode ~ '&t=m&z=16&output=embed&iwloc=near') %}
             <div class="location-card">
                 <div class="location-card-header bg-red">
-                    <h3>LAKE CHARLES</h3>
+                    <h3>{{ (lc.name or 'LAKE CHARLES') | upper }}</h3>
                 </div>
                 <div class="location-card-body">
-                    <iframe
-                        src="https://maps.google.com/maps?q=4453%20Nelson%20Rd%2C%20Lake%20Charles%2C%20LA%2070605&t=m&z=16&output=embed&iwloc=near"
-                        width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    <iframe src="{{ lc_src }}" width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                 </div>
                 <div class="location-card-footer bg-red">
-                    <p><i class="fas fa-phone-alt"></i> (337) 602-9002</p>
-                    <p><i class="fas fa-map-marker-alt"></i> 4453 Nelson Rd<br>Lake Charles, LA 70605</p>
+                    <p><i class="fas fa-phone-alt"></i> {{ lc.phone or '(337) 602-9002' }}</p>
+                    <p><i class="fas fa-map-marker-alt"></i> {{ lc.address_line1 or '4453 Nelson Rd' }}<br>{{ lc.address_line2 or 'Lake Charles, LA 70605' }}</p>
                 </div>
             </div>
 
             <!-- Sulphur -->
+            {% set sul = locations_data.get('sulphur', {}) %}
+            {% set sul_target = sul.map_query or (sul.address_line1 ~ ', ' ~ sul.address_line2) if sul.address_line1 else '4124 Maplewood Dr, Sulphur, LA 70663' %}
+            {% set sul_src = sul_target if sul_target.startswith('http') else ('https://maps.google.com/maps?q=' ~ sul_target | urlencode ~ '&t=m&z=16&output=embed&iwloc=near') %}
             <div class="location-card">
                 <div class="location-card-header bg-grey">
-                    <h3>SULPHUR</h3>
+                    <h3>{{ (sul.name or 'SULPHUR') | upper }}</h3>
                 </div>
                 <div class="location-card-body">
-                    <iframe
-                        src="https://maps.google.com/maps?q=4124%20Maplewood%20Dr%2C%20Sulphur%2C%20LA%2070663&t=m&z=16&output=embed&iwloc=near"
-                        width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    <iframe src="{{ sul_src }}" width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                 </div>
                 <div class="location-card-footer bg-grey">
-                    <p><i class="fas fa-phone-alt"></i> 337-625-5586</p>
-                    <p><i class="fas fa-map-marker-alt"></i> 4124 Maplewood Dr<br>Sulphur, LA 70663</p>
+                    <p><i class="fas fa-phone-alt"></i> {{ sul.phone or '337-625-5586' }}</p>
+                    <p><i class="fas fa-map-marker-alt"></i> {{ sul.address_line1 or '4124 Maplewood Dr' }}<br>{{ sul.address_line2 or 'Sulphur, LA 70663' }}</p>
                 </div>
             </div>
 
             <!-- Moss Bluff -->
+            {% set mb = locations_data.get('moss-bluff', {}) %}
+            {% set mb_target = mb.map_query or (mb.address_line1 ~ ', ' ~ mb.address_line2) if mb.address_line1 else '1355 Sam Houston Jones Pkwy, Ste 115, Moss Bluff, LA 70611' %}
+            {% set mb_src = mb_target if mb_target.startswith('http') else ('https://maps.google.com/maps?q=' ~ mb_target | urlencode ~ '&t=m&z=16&output=embed&iwloc=near') %}
             <div class="location-card">
                 <div class="location-card-header bg-red">
-                    <h3>MOSS BLUFF</h3>
+                    <h3>{{ (mb.name or 'MOSS BLUFF') | upper }}</h3>
                 </div>
                 <div class="location-card-body">
-                    <iframe
-                        src="https://maps.google.com/maps?q=1355%20Sam%20Houston%20Jones%20Pkwy%20Suite%20115%2C%20Moss%20Bluff%2C%20LA%2070611&t=m&z=16&output=embed&iwloc=near"
-                        width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    <iframe src="{{ mb_src }}" width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                 </div>
                 <div class="location-card-footer bg-red">
-                    <p><i class="fas fa-phone-alt"></i> 337-485-7493</p>
-                    <p><i class="fas fa-map-marker-alt"></i> 1355 Sam Houston Jones Pkwy, Ste 115<br>Moss Bluff, LA
-                        70611</p>
+                    <p><i class="fas fa-phone-alt"></i> {{ mb.phone or '(337) 602-9002' }}</p>
+                    <p><i class="fas fa-map-marker-alt"></i> {{ mb.address_line1 or '1355 Sam Houston Jones Pkwy, Ste 115' }}<br>{{ mb.address_line2 or 'Moss Bluff, LA 70611' }}</p>
                 </div>
             </div>
         </div>

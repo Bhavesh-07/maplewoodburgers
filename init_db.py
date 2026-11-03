@@ -134,6 +134,37 @@ def init_db():
         )
         """
         cursor.execute(create_loyalty_table)
+
+        # Create store_locations table
+        create_locations_table = """
+        CREATE TABLE IF NOT EXISTS store_locations (
+            id INT AUTO_INCREMENT PRIMARY KEY,
+            slug VARCHAR(50) UNIQUE NOT NULL,
+            name VARCHAR(100) NOT NULL,
+            phone VARCHAR(50) NOT NULL,
+            address_line1 VARCHAR(255) NOT NULL,
+            address_line2 VARCHAR(255) DEFAULT '',
+            hours TEXT NOT NULL,
+            map_query VARCHAR(255) DEFAULT '',
+            order_url VARCHAR(255) DEFAULT '',
+            updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+        ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4
+        """
+        cursor.execute(create_locations_table)
+
+        # Seed initial locations if not exist
+        cursor.execute("SELECT COUNT(*) FROM store_locations")
+        if cursor.fetchone()[0] == 0:
+            initial_locations = [
+                ('lake-charles', 'Lake Charles', '(337) 602-9002', '4453 Nelson Rd', 'Lake Charles, LA 70605', 'Monday – Sunday: 8:00 AM – 9:00 PM', '4453 Nelson Rd, Lake Charles, LA 70605', 'https://order.maplewoodburgers.com/order/?branchId=60b37bdfaa3ff40dede8708e&branchName=Lake%20Charles&search=&servingOptionType=pickup/'),
+                ('sulphur', 'Sulphur', '337-625-5586', '4124 Maplewood Dr', 'Sulphur, LA 70663', 'Mon-Fri 5:00am - 9pm\nSaturday 6am - 9pm\nSunday 8am - 8pm', '4124 Maplewood Dr, Sulphur, LA 70663', 'https://order.maplewoodburgers.com/order/?branchId=60b37bdfaa3ff40dede8708f&branchName=Sulphur&search=&servingOptionType=pickup/'),
+                ('moss-bluff', 'Moss Bluff', '(337) 602-9002', '1355 Sam Houston Jones Pkwy, Suite 115', 'Moss Bluff, LA 70611', 'Monday – Thursday: 8:00 AM – 8:30 PM\nFriday – Sunday: 8:00 AM – 9:00 PM', '1355 Sam Houston Jones Pkwy Suite 115, Moss Bluff, LA 70611, United States', 'https://order.maplewoodburgers.com/')
+            ]
+            cursor.executemany("""
+                INSERT INTO store_locations (slug, name, phone, address_line1, address_line2, hours, map_query, order_url)
+                VALUES (%s, %s, %s, %s, %s, %s, %s, %s)
+            """, initial_locations)
+            print("  [SEED] Default store locations seeded.")
         
         # Insert default settings if not exists
         default_settings = [
@@ -183,7 +214,7 @@ def init_db():
                 VALUES (%(title)s, %(slug)s, %(excerpt)s, %(content)s, %(image_url)s, %(meta_description)s, %(published_date)s)
             """, seed_blog)
         
-        print("Database, tables, default user, and blogs initialized/seeded successfully.")
+        print("Database, tables, default user, locations, and blogs initialized/seeded successfully.")
         
         cursor.close()
         conn.close()

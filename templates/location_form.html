@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Location: {{ location.name }} | Admin Dashboard</title>
+    <!-- Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Oswald:wght@500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/lib/font-awesome/css/all.min.css">
+    <link rel="stylesheet" href="/static/css/admin-style.css">
+    <style>
+        .form-card {
+            max-width: 850px;
+            margin-top: 20px;
+        }
+        .help-text {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-top: 5px;
+            line-height: 1.4;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-logo">
+            <img src="/static/img/Maplewood-Burgers-Logo-Horiz.svg" alt="Maplewood Burgers">
+        </div>
+        <ul class="sidebar-nav">
+            <li>
+                <a href="/access-panel">
+                    <i class="fas fa-file-invoice"></i>
+                    <span>Applications</span>
+                </a>
+            </li>
+            <li>
+                <a href="/access-panel/loyalty">
+                    <i class="fas fa-users"></i>
+                    <span>Loyalty Program</span>
+                </a>
+            </li>
+            <li>
+                <a href="/access-panel/blogs">
+                    <i class="fas fa-blog"></i>
+                    <span>Blogs</span>
+                </a>
+            </li>
+            <li>
+                <a href="/access-panel/locations" class="active">
+                    <i class="fas fa-map-marked-alt"></i>
+                    <span>Locations</span>
+                </a>
+            </li>
+            <li>
+                <a href="/access-panel/settings">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </a>
+            </li>
+            <li>
+                <a href="/access-panel/sync-menu" class="sync-menu-link">
+                    <i class="fas fa-sync-alt"></i>
+                    <span>Sync Menu Items</span>
+                </a>
+            </li>
+            <li style="margin-top: 20px;">
+                <a href="/" target="_blank">
+                    <i class="fas fa-external-link-alt"></i>
+                    <span>View Website</span>
+                </a>
+            </li>
+        </ul>
+        <div class="sidebar-footer">
+            <a href="/logout" class="logout-btn">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>Logout</span>
+            </a>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Top Bar -->
+        <div class="top-bar">
+            <div class="welcome-text">
+                <h2>Edit Location: {{ location.name }}</h2>
+                <p>Update phone number, operating hours, and physical address details.</p>
+            </div>
+            <div class="top-actions">
+                <a href="/access-panel/locations" class="btn-outline"><i class="fas fa-arrow-left"></i> Back to Locations</a>
+            </div>
+        </div>
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+        {% for category, message in messages %}
+        <div class="flash-message flash-{{ category }}">{{ message }}</div>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+
+        <div class="card form-card">
+            <div class="card-title">Location Information</div>
+
+            <form action="/access-panel/locations/edit/{{ location.id }}" method="POST">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                    <div class="form-group">
+                        <label for="name">Location Display Name *</label>
+                        <input type="text" name="name" id="name" class="form-control" value="{{ location.name }}" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number *</label>
+                        <input type="text" name="phone" id="phone" class="form-control" value="{{ location.phone }}" required placeholder="(337) 000-0000">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="address_line1">Street Address *</label>
+                    <input type="text" name="address_line1" id="address_line1" class="form-control" value="{{ location.address_line1 }}" required placeholder="e.g. 4453 Nelson Rd">
+                </div>
+
+                <div class="form-group">
+                    <label for="address_line2">City, State, Zip</label>
+                    <input type="text" name="address_line2" id="address_line2" class="form-control" value="{{ location.address_line2 }}" placeholder="e.g. Lake Charles, LA 70605">
+                </div>
+
+                <div class="form-group">
+                    <label for="hours">Operating Hours *</label>
+                    <textarea name="hours" id="hours" class="form-control" rows="4" required placeholder="Monday – Sunday: 8:00 AM – 9:00 PM">{{ location.hours }}</textarea>
+                    <div class="help-text">You can enter each day or timing schedule on a new line. It will format with proper line breaks on the public website.</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="order_url">Online Ordering Link</label>
+                    <input type="url" name="order_url" id="order_url" class="form-control" value="{{ location.order_url or '' }}" placeholder="https://order.maplewoodburgers.com/...">
+                </div>
+
+                <div style="display: flex; gap: 15px; margin-top: 30px;">
+                    <button type="submit" class="btn-primary" style="padding: 12px 28px; border-radius: 25px; border: none; cursor: pointer; font-size: 14px; font-weight: 600;">
+                        <i class="fas fa-save" style="margin-right: 6px;"></i> Save Location Changes
+                    </button>
+                    <a href="/access-panel/locations" class="btn-outline" style="padding: 12px 24px; border-radius: 25px; text-decoration: none; display: inline-flex; align-items: center;">Cancel</a>
+                </div>
+            </form>
+        </div>
+    </main>
+</body>
+
+</html>

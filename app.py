@@ -55,21 +55,30 @@ def allowed_file(filename):
     return '.' in filename and \
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
-# --- Context Processor for Global Settings ---
+# --- Context Processor for Global Settings & Locations ---
 @app.context_processor
-def inject_settings():
+def inject_global_data():
+    settings_dict = {}
+    locations_dict = {}
     try:
         conn = get_db_connection()
         cursor = conn.cursor(dictionary=True)
         cursor.execute("SELECT setting_key, setting_value FROM settings")
         db_settings = cursor.fetchall()
+        settings_dict = {s['setting_key']: s['setting_value'] for s in db_settings}
+
+        try:
+            cursor.execute("SELECT * FROM store_locations")
+            db_locations = cursor.fetchall()
+            locations_dict = {loc['slug']: loc for loc in db_locations}
+        except Exception:
+            pass
+
         cursor.close()
         conn.close()
-        
-        settings_dict = {s['setting_key']: s['setting_value'] for s in db_settings}
-        return dict(settings=settings_dict)
-    except:
-        return dict(settings={})
+    except Exception:
+        pass
+    return dict(settings=settings_dict, locations_data=locations_dict)
 
 def render_stars(rating):
     full_stars = int(rating)
@@ -255,7 +264,7 @@ def serve_page(page):
     # Block direct static loading of administrative and login templates
     prohibited_pages = {
         'admin', 'admin-backup', 'blogs_admin', 'blog_form',
-        'loyalty_admin', 'reviews_admin', 'settings', 'login'
+        'loyalty_admin', 'reviews_admin', 'settings', 'login', 'locations_admin', 'location_form'
     }
     if clean_slug in prohibited_pages:
         abort(404)
@@ -801,6 +810,67 @@ def admin_delete_loyalty(id):
     except Exception as e:
         flash(f"Error deleting loyalty signup: {str(e)}", "danger")
     return redirect(url_for('admin_loyalty'))
+
+@app.route('/access-panel/locations')
+@login_required
+def admin_locations():
+    try:
+        conn = get_db_connection()
+        cursor = conn.cursor(dictionary=True)
+        cursor.execute("SELECT * FROM store_locations ORDER BY id ASC")
+        locations = cursor.fetchall()
+        cursor.close()
+        conn.close()
+        return render_template('locations_admin.html', locations=locations)
+    except Exception as e:
+        app.logger.error(f"Error displaying locations admin: {e}")
+        return f"Database Error: {str(e)}"
+
+@app.route('/access-panel/locations/edit/<int:id>', methods=['GET', 'POST'])
+@login_required
+def admin_location_edit(id):
+    try:
+        conn = get_db_connection()
+        cursor = conn.cursor(dictionary=True)
+        cursor.execute("SELECT * FROM store_locations WHERE id = %s", (id,))
+        location = cursor.fetchone()
+        cursor.close()
+        conn.close()
+    except Exception as e:
+        flash(f"Error fetching location: {str(e)}", "danger")
+        return redirect(url_for('admin_locations'))
+
+    if not location:
+        flash("Location not found.", "danger")
+        return redirect(url_for('admin_locations'))
+
+    if request.method == 'POST':
+        name = request.form.get('name', '').strip()
+        phone = request.form.get('phone', '').strip()
+        address_line1 = request.form.get('address_line1', '').strip()
+        address_line2 = request.form.get('address_line2', '').strip()
+        hours = request.form.get('hours', '').strip()
+        order_url = request.form.get('order_url', '').strip()
+        map_query = location.get('map_query') or f"{address_line1}, {address_line2}".strip(', ')
+
+        try:
+            conn = get_db_connection()
+            cursor = conn.cursor()
+            cursor.execute("""
+                UPDATE store_locations
+                SET name = %s, phone = %s, address_line1 = %s, address_line2 = %s, hours = %s, map_query = %s, order_url = %s
+                WHERE id = %s
+            """, (name, phone, address_line1, address_line2, hours, map_query, order_url, id))
+            conn.commit()
+            cursor.close()
+            conn.close()
+            flash(f"Location '{name}' updated successfully! Website details have been updated.", "success")
+            return redirect(url_for('admin_locations'))
+        except Exception as e:
+            flash(f"Error updating location: {str(e)}", "danger")
+            return render_template('location_form.html', location=request.form)
+
+    return render_template('location_form.html', location=location)
 
 @app.route('/access-panel/settings', methods=['GET', 'POST'])
 @login_required
